@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>““JAVA面向对象总结 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content>
+  <meta name="description" content>
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'hexo-theme-lx-master',
+    version: '1.4.5',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: '-'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "endless-river",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300|Noto+Serif+SC&amp;display=swap">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+</head>
+<body>
+<div class="single">
+<div id="page">
+<div id="lx-aside" style="background-image: url(/images/page-cover.jpg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="/images/person_1.jpg"></a></div>
+    <span>2019-10-11</span>
+    <h2>““JAVA面向对象总结</h2>
+    
+    </div>
+</div>
+</div>
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <h1 id="第二章-类和对象"><a href="#第二章-类和对象" class="headerlink" title="第二章 类和对象"></a>第二章 类和对象</h1><h3 id="1-面向对象概念："><a href="#1-面向对象概念：" class="headerlink" title="* 1.面向对象概念："></a>* 1.面向对象概念：</h3><p>​        面向对象就是把一个项目，一个事情分成更小的项目，或者说分成一个个更小的部分，每一部分负责什么方面的功能，最后再由这些部分组合而成为一个整体。</p>
+<h3 id="2-类的创建："><a href="#2-类的创建：" class="headerlink" title="* 2.类的创建："></a>* 2.类的创建：</h3><p>语法：public class 类名{}</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>步骤：File—&gt;new—&gt;class—&gt;类名</p>
+<h3 id="3-创建对象："><a href="#3-创建对象：" class="headerlink" title="* 3.创建对象："></a>* 3.创建对象：</h3><p>语法：类名 对象名=new 类名();</p>
+<p>​            对象名.方法名(); 对象名.属性</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person person=<span class="keyword">new</span> Person();</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-构造方法："><a href="#4-构造方法：" class="headerlink" title="* 4.构造方法："></a>* 4.构造方法：</h3><p>方法名和类名相同,没有返回值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">person</span><span class="params">()</span></span>&#123;&#125;<span class="comment">//主要的做用是初始化操作</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-构造方法重载"><a href="#5-构造方法重载" class="headerlink" title="* 5.构造方法重载:"></a>* 5.构造方法重载:</h3><p>在同一个类中，方法名相同，参数个数，顺序，类型不相同的构造方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">Person</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">person</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">person</span><span class="params">(String name,<span class="keyword">int</span> age)</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-构造方法的执行："><a href="#6-构造方法的执行：" class="headerlink" title="* 6.构造方法的执行："></a>* 6.构造方法的执行：</h3><p>new 类名();—&gt;执行构造方法</p>
+<p>super();—&gt;执行了父类的构造方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> person();</span><br><span class="line"><span class="keyword">super</span>();</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-static静态修饰符"><a href="#7-static静态修饰符" class="headerlink" title="* 7.static静态修饰符:"></a>* 7.static静态修饰符:</h3><p>静态修饰符可以修饰属性、方法、代码块，静态方法中不能使用this和super关键字。</p>
+<h5 id="如何使用："><a href="#如何使用：" class="headerlink" title="如何使用："></a>如何使用：</h5><p>类名.属性      类名.方法名</p>
+<h3 id="8-java内存（栈和堆，static，方法区，gc（垃圾回收机制））"><a href="#8-java内存（栈和堆，static，方法区，gc（垃圾回收机制））" class="headerlink" title="* 8.java内存（栈和堆，static，方法区，gc（垃圾回收机制））"></a>* 8.java内存（栈和堆，static，方法区，gc（垃圾回收机制））</h3><h1 id="第三章-面向对象三大特征—封装"><a href="#第三章-面向对象三大特征—封装" class="headerlink" title="第三章 面向对象三大特征—封装"></a>第三章 面向对象三大特征—封装</h1><h3 id="1-封装的概念："><a href="#1-封装的概念：" class="headerlink" title="* 1.封装的概念："></a>* 1.封装的概念：</h3><p>​            封装指的是将对象的状态信息隐藏在对象内部，不允许外部程序直接访问对象内部信息，而是通过该类所提供的方法来实现对内部信息的操作访问。</p>
+<h3 id="2-封装的步骤："><a href="#2-封装的步骤：" class="headerlink" title="* 2.封装的步骤："></a>* 2.封装的步骤：</h3><p>​        1.把属性私有化（private）</p>
+<p>​        2.对这些属性设置get和set方法</p>
+<p>​        3.调用get和set方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">Person</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-封装的作用："><a href="#3-封装的作用：" class="headerlink" title="* 3.封装的作用："></a>* 3.封装的作用：</h3><p>​        避免一些用一些不合乎常理的操作</p>
+<h3 id="4-修饰符："><a href="#4-修饰符：" class="headerlink" title="* 4.修饰符："></a>* 4.修饰符：</h3><pre><code>public---&gt;公共的：在一个项目中都可以访问，权限最高</code></pre><p>​         private—&gt;私有的：只能在本类中进行访问，权限最低</p>
+<p>​         protected—&gt;安全的，受保护的：同一个包能进行访问，继承中之类可以访问父类</p>
+<p>​         default—&gt;默认的：同一个包能访问</p>
+<h3 id="5-好处："><a href="#5-好处：" class="headerlink" title="* 5.好处："></a>* 5.好处：</h3><p>​            提高了安全性   提高了复用性  提高了实现细节</p>
+<h1 id="第四章-面向对象三大特征—继承"><a href="#第四章-面向对象三大特征—继承" class="headerlink" title="第四章 面向对象三大特征—继承"></a>第四章 面向对象三大特征—继承</h1><h3 id="1-继承的概念：父亲儿子，电影《西虹市首富》"><a href="#1-继承的概念：父亲儿子，电影《西虹市首富》" class="headerlink" title="* 1.继承的概念：父亲儿子，电影《西虹市首富》"></a>* 1.继承的概念：父亲儿子，电影《西虹市首富》</h3><p>​        比如FeiGe快递系统中有三个实体类Person（人），Courier（快递员）,Customer（客户）类，Courier,Customer都属于（派生类）Person，所以都继承（extends）自Person类。</p>
+<h3 id="2-好处："><a href="#2-好处：" class="headerlink" title="* 2.好处："></a>* 2.好处：</h3><p>​         提高了代码的重用性  提高了代码的扩展性</p>
+<h3 id="3-继承的关键字：extends"><a href="#3-继承的关键字：extends" class="headerlink" title="* 3.继承的关键字：extends"></a>* 3.继承的关键字：extends</h3><h3 id="4-继承的语法："><a href="#4-继承的语法：" class="headerlink" title="* 4.继承的语法："></a>* 4.继承的语法：</h3><p>​            public class 类名  extends 父类{}</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Courier</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-如何使用："><a href="#5-如何使用：" class="headerlink" title="* 5. 如何使用："></a>* 5. 如何使用：</h3><p>在子类中，可以直接调用父类的非私有属性和方法，可以用super.方法     super.属性。</p>
+<h3 id="6-父类构造方法的调用：super"><a href="#6-父类构造方法的调用：super" class="headerlink" title="* 6.父类构造方法的调用：super();"></a>* 6.父类构造方法的调用：super();</h3><p>调用父类的构造方法必须在子类中调用，必须实在之类构造方法的第一行代码</p>
+<h3 id="7-重写-Override：必须继承"><a href="#7-重写-Override：必须继承" class="headerlink" title="* 7.重写@Override：必须继承"></a>* 7.重写@Override：必须继承</h3><p>​        方法名一致，参数个数，顺序，类型全部一致</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer_1.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="#">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>没有更新的文章</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer_2.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2019/10/10/我的第一篇博客/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>我的第一篇博客</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.blleng.cn" target="_blank">Lx</a><br>
+  </div>
+</footer>
+</div>
+
+<button class="menu-trigger"></button>
+<div class="menu">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/person_1.jpg" alt="John Doe"></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>John Doe</p>
+          <span class="tagline">Hello, World!</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>页面</span>
+        <ul>
+          <li><a href="/guestbook">留言</a></li>
+        <li><a href="/about">关于</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>友链</span>
+        <ul>
+          <li> <a href="https://lx.blleng.cn" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.stellar.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
