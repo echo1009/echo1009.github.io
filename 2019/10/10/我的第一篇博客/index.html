@@ -1,19 +1,26 @@
-<body>
-    <script>
-        var url = "";
-        var root = window.location.origin + '/';
-        var index = window.location.href.indexOf(root);
-        if (index == -1) {
-            url = window.location.origin + "/#" + window.location.pathname;
-        } else {
-            url = root + "#/" + window.location.href.substring(root.length);
-        }
-        window.location.href = url.substring(0, url.length - 1);
-    </script>
-</body>
-<meta charset="utf-8">
-<h3>我的第一篇博客</h3>
-<br />
-<p><h1 id="文案"><a href="#文案" class="headerlink" title="文案"></a>文案</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">system.out.println(<span class="string">"我们兵分两路  然后在顶端相见"</span>);</span><br></pre></td></tr></table></figure>
+extends views/main.pug
 
-</p>
+block head
+  title
+    = page.title + ' - ' + config.title
+
+block main
+  if page.type === 'tags'
+    include mixins/tags.pug
+    +tags('TAGS', site.tags.length)
+  else
+    include mixins/post.pug
+    +post(page, 'post')
+
+  //-
+  include plugins/reward.pug
+
+  //- comment
+  if theme.comment_plugin == 'valine'
+    include plugins/valine.pug
+  else
+    include plugins/livere.pug
+
+  //- mathjax
+  if page.mathjax
+    include plugins/mathjax.pug
