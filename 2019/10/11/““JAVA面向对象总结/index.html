@@ -98,6 +98,56 @@
 <h3 id="5-如何使用："><a href="#5-如何使用：" class="headerlink" title="* 5. 如何使用："></a>* 5. 如何使用：</h3><p>在子类中，可以直接调用父类的非私有属性和方法，可以用super.方法     super.属性。</p>
 <h3 id="6-父类构造方法的调用：super"><a href="#6-父类构造方法的调用：super" class="headerlink" title="* 6.父类构造方法的调用：super();"></a>* 6.父类构造方法的调用：super();</h3><p>调用父类的构造方法必须在子类中调用，必须实在之类构造方法的第一行代码</p>
 <h3 id="7-重写-Override：必须继承"><a href="#7-重写-Override：必须继承" class="headerlink" title="* 7.重写@Override：必须继承"></a>* 7.重写@Override：必须继承</h3><p>​        方法名一致，参数个数，顺序，类型全部一致</p>
+<h1 id="第五章-面向对象三大特征—多态"><a href="#第五章-面向对象三大特征—多态" class="headerlink" title="第五章 面向对象三大特征—多态"></a>第五章 面向对象三大特征—多态</h1><h3 id="1-多态的概念："><a href="#1-多态的概念：" class="headerlink" title="* 1.多态的概念："></a>* 1.多态的概念：</h3><p>​        指允许不同类的对象对同一消息做出响应即同同一消息可以根据发送对象的不同而采用多种不同的行为方式。</p>
+<h3 id="2-好处：-1"><a href="#2-好处：-1" class="headerlink" title="* 2.好处："></a>* 2.好处：</h3><p>​        可替换性 可扩充性 接口性 灵活性 简化性</p>
+<h3 id="3-多态的必要条件："><a href="#3-多态的必要条件：" class="headerlink" title="3.多态的必要条件："></a>3.多态的必要条件：</h3><p>​        继承</p>
+<p>​        重写</p>
+<p>​        父类引用指向子类对象（向上转型）</p>
+<h3 id="4-多态的使用："><a href="#4-多态的使用：" class="headerlink" title="* 4.多态的使用："></a>* 4.多态的使用：</h3><p>​    向上转型：&lt;父类型&gt;&lt;引用变量名&gt;=new&lt;子类型&gt;（）；        </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Father</span></span>&#123;</span><br><span class="line"> 		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cooking</span><span class="params">()</span></span>&#123;</span><br><span class="line">  				System.out.println(<span class="string">"米饭"</span>);</span><br><span class="line">  			&#125;</span><br><span class="line">  		&#125;</span><br><span class="line">   	<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span></span>&#123;</span><br><span class="line">  			<span class="meta">@Override</span></span><br><span class="line">  			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cooking</span><span class="params">()</span></span>&#123;</span><br><span class="line">  				System.out.println(<span class="string">"熬粥"</span>);</span><br><span class="line">  			&#125;</span><br><span class="line">  		&#125;</span><br><span class="line">  		<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"> 			<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"> 				Father son=<span class="keyword">new</span> Son();</span><br><span class="line"> 				son.cooking();</span><br><span class="line"> 			&#125;</span><br><span class="line"> 		&#125;</span><br></pre></td></tr></table></figure>
+
+<p>向下转型：&lt;子类型&gt;&lt;引用变量名&gt;=（&lt;子类型&gt;）&lt;父类型的引用变量&gt;；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Son son=(Son)father;</span><br></pre></td></tr></table></figure>
+
+<h1 id="第六章-抽象"><a href="#第六章-抽象" class="headerlink" title="第六章 抽象"></a>第六章 抽象</h1><h3 id="1-抽象的概念："><a href="#1-抽象的概念：" class="headerlink" title="* 1.抽象的概念："></a>* 1.抽象的概念：</h3><p>​        如果一个类没有足够的信息去描述一个具体的对象那我们就称之为抽象类。</p>
+<h3 id="2-抽象的关键字："><a href="#2-抽象的关键字：" class="headerlink" title="* 2.抽象的关键字："></a>* 2.抽象的关键字：</h3><h4 id="abstract-可以修饰类，可以修饰方法"><a href="#abstract-可以修饰类，可以修饰方法" class="headerlink" title="abstract   可以修饰类，可以修饰方法"></a>abstract   可以修饰类，可以修饰方法</h4><h3 id="3-抽象的用法："><a href="#3-抽象的用法：" class="headerlink" title="* 3.抽象的用法："></a>* 3.抽象的用法：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//抽象类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> 类名</span>&#123;</span><br><span class="line">    <span class="comment">//抽象方法没有方法体</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> 方法名();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//当父类是抽象类的时候，子类必须重写父类里面的抽象方法</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-final修饰符：最终的"><a href="#4-final修饰符：最终的" class="headerlink" title="* 4.final修饰符：最终的"></a>* 4.final修饰符：最终的</h3><p>​        修饰变量，修饰方法，修饰类</p>
+<p>​        1.当修饰变量时，变量转换成常量，常量的值不能改变</p>
+<p>​                        final int a=18;//a=18;不能改变，必须给一个初始值。</p>
+<p>​        2.当修饰方法时，该方法不能被重写</p>
+<p>​        3.当修饰类时，该类不能被继承</p>
+<h1 id="第七章-接口–interface"><a href="#第七章-接口–interface" class="headerlink" title="第七章 接口–interface"></a>第七章 接口–interface</h1><h3 id="1-接口的概念："><a href="#1-接口的概念：" class="headerlink" title="* 1.接口的概念："></a>* 1.接口的概念：</h3><p>​        在软件中接口是一种规范和标准他们可以约束类的行为是一些方法特征的集合但是没有方法的实现。</p>
+<h3 id="2-接口的关键字——interface"><a href="#2-接口的关键字——interface" class="headerlink" title="* 2.接口的关键字——interface"></a>* 2.接口的关键字——interface</h3><h3 id="3-接口的语法："><a href="#3-接口的语法：" class="headerlink" title="* 3.接口的语法："></a>* 3.接口的语法：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> 接口名</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>File—&gt;new—&gt;interface//创建接口</li>
+</ul>
+<h3 id="4-接口的用法："><a href="#4-接口的用法：" class="headerlink" title="* 4.接口的用法："></a>* 4.接口的用法：</h3><h4 id="实现接口的关键字-implements"><a href="#实现接口的关键字-implements" class="headerlink" title="*  实现接口的关键字  implements"></a>*  实现接口的关键字  implements</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> 接口名</span>&#123;</span><br><span class="line">  			<span class="comment">//接口是纯抽象类</span></span><br><span class="line">  			<span class="comment">//接口里面的方法都是抽象方法</span></span><br><span class="line">  			<span class="function"><span class="keyword">void</span> <span class="title">setData</span><span class="params">()</span></span>;</span><br><span class="line">  		&#125;</span><br><span class="line">  		<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Play</span> <span class="keyword">implements</span> 接口名</span>&#123;</span><br><span class="line">  			<span class="meta">@Override</span></span><br><span class="line">  			<span class="function"><span class="keyword">void</span> <span class="title">setData</span><span class="params">()</span></span>&#123;</span><br><span class="line">  			&#125;</span><br><span class="line"> 		&#125;</span><br><span class="line">  		<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">  			<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">  				Play play=<span class="keyword">new</span> Play();</span><br><span class="line">  				play.setData();</span><br><span class="line">  			&#125;</span><br><span class="line">  		&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意接口可以进行多继承</p>
+<ul>
+<li><p>public interface 接口名 extends 接口名，接口名{}</p>
+</li>
+<li><p>一般用法</p>
+</li>
+<li><p>public class 类名 extends 父类 implements 接口，接口{}</p>
+<h1 id="第八章-结合框架"><a href="#第八章-结合框架" class="headerlink" title="第八章 结合框架"></a>第八章 结合框架</h1><h3 id="1-ArrayList"><a href="#1-ArrayList" class="headerlink" title="* 1.ArrayList"></a>* 1.ArrayList</h3><p>1.用法</p>
+<ul>
+<li>ArrayList list=new ArrayList();</li>
+<li>list.add();//添加数据</li>
+<li>list.get();//获取数据</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-Map"><a href="#2-Map" class="headerlink" title="* 2.Map"></a>* 2.Map</h3><p>用法</p>
+<ul>
+<li>Map map=new HasMap();</li>
+<li>map.put(key,value);//key不能重复</li>
+<li>map.get(key);//获取key对象的value</li>
+</ul>
+<h3 id="3-泛型"><a href="#3-泛型" class="headerlink" title="* 3.泛型"></a>* 3.泛型</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;String&gt; list=<span class="keyword">new</span> ArrayList&gt;&lt;String&gt;();</span><br><span class="line">Map&lt;String,String&gt; map=<span class="keyword">new</span> HasMap&lt;String,String&gt;();</span><br><span class="line">ArrayList&lt;Map&lt;String,String&gt;&gt; list=<span class="keyword">new</span> ArrayList&gt;&lt;Map&lt;String,String&gt;&gt;();</span><br></pre></td></tr></table></figure>
+
 
       </div>
     </div>
