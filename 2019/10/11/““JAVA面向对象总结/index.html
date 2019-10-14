@@ -132,7 +132,7 @@
 <li><p>一般用法</p>
 </li>
 <li><p>public class 类名 extends 父类 implements 接口，接口{}</p>
-<h1 id="第八章-结合框架"><a href="#第八章-结合框架" class="headerlink" title="第八章 结合框架"></a>第八章 结合框架</h1><h3 id="1-ArrayList"><a href="#1-ArrayList" class="headerlink" title="* 1.ArrayList"></a>* 1.ArrayList</h3><p>1.用法</p>
+<h1 id="第八章-集合框架"><a href="#第八章-集合框架" class="headerlink" title="第八章 集合框架"></a>第八章 集合框架</h1><h3 id="1-ArrayList"><a href="#1-ArrayList" class="headerlink" title="* 1.ArrayList"></a>* 1.ArrayList</h3><p>1.用法</p>
 <ul>
 <li>ArrayList list=new ArrayList();</li>
 <li>list.add();//添加数据</li>
@@ -148,6 +148,49 @@
 </ul>
 <h3 id="3-泛型"><a href="#3-泛型" class="headerlink" title="* 3.泛型"></a>* 3.泛型</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;String&gt; list=<span class="keyword">new</span> ArrayList&gt;&lt;String&gt;();</span><br><span class="line">Map&lt;String,String&gt; map=<span class="keyword">new</span> HasMap&lt;String,String&gt;();</span><br><span class="line">ArrayList&lt;Map&lt;String,String&gt;&gt; list=<span class="keyword">new</span> ArrayList&gt;&lt;Map&lt;String,String&gt;&gt;();</span><br></pre></td></tr></table></figure>
 
+<p>​                                                             数组和集合的比较</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>数组</th>
+<th>集合</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>长度</td>
+<td>长度是固定的</td>
+<td>长度是可变的</td>
+</tr>
+<tr>
+<td>存储对象</td>
+<td>可以存储基本数据类型，也可以存储对象的引用</td>
+<td>只能用于存储对象的引用</td>
+</tr>
+<tr>
+<td>对象类型</td>
+<td>必须是相同类型的数据</td>
+<td>对象可以是不同类型的</td>
+</tr>
+</tbody></table>
+<h1 id="第九章-文件操作"><a href="#第九章-文件操作" class="headerlink" title="第九章  文件操作"></a>第九章  文件操作</h1><h3 id="1-file类对象的主要作用是用来获取文本本身的一些信息"><a href="#1-file类对象的主要作用是用来获取文本本身的一些信息" class="headerlink" title="* 1.file类对象的主要作用是用来获取文本本身的一些信息"></a>* 1.file类对象的主要作用是用来获取文本本身的一些信息</h3><h3 id="2-流"><a href="#2-流" class="headerlink" title="* 2.流"></a>* 2.流</h3><p>​            流具有明确的方向性，当向一个流写入数据时，这个流被称为输出流，输出流可以将信息送往程序的外部。</p>
+<h1 id="第十章-多线程"><a href="#第十章-多线程" class="headerlink" title="第十章  多线程"></a>第十章  多线程</h1><h3 id="1-线程的概念"><a href="#1-线程的概念" class="headerlink" title="* 1. 线程的概念"></a>* 1. 线程的概念</h3><p>线程可以理解成是在程序中独立运行的子任务</p>
+<h3 id="2-线程的创建"><a href="#2-线程的创建" class="headerlink" title="* 2.线程的创建"></a>* 2.线程的创建</h3><h5 id="创建线程的两种方式："><a href="#创建线程的两种方式：" class="headerlink" title="* 创建线程的两种方式："></a>* 创建线程的两种方式：</h5><p>1.实现Runnable接口和继承Thread类。</p>
+<p>步骤：</p>
+<p>（1）定义一个类实现Runnable接口</p>
+<p>（2）实现接口中唯一的run()方法，该方法是线程开启时要执行的歌曲下载</p>
+<p>（3）在代码中声明一个线程实体Thread myThread=new Thread(download);//download为实现Runable 接口的类的实体对象</p>
+<p>（4）调用myThread.start()方法启动新创建的线程。</p>
+<p>2.继承Thead创建线程</p>
+<p>步骤：</p>
+<p>（1）创建类MyThread并继承Thread类</p>
+<p>（2）实现类MyThread的run()方法，该方法是线程开启时要执行的下载</p>
+<p>（3）生成MyThread类的对象，MyThread  myThread=new MyThread();</p>
+<p>（4）调用myThread.start()方法启动新创建的线程。</p>
+<p><strong>3.多线程的同步是“排队”并非同时进行</strong></p>
+<p><strong>4.线程死锁</strong></p>
+<p><strong>当synchronized关键字修饰一个方法的时候，该方法叫做同步方法</strong></p>
+<p>当synchronized方法执行完或发生异常时，会自动释放死锁 。</p>
 
       </div>
     </div>
