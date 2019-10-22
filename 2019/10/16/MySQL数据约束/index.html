@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Hello World | Hexo</title>
+  <title>MySQL数据约束 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="John Doe">
   <meta name="keywords" content>
@@ -48,8 +48,8 @@
   <div class="overlay">
   <div class="page-title">
     <div class="avatar"><a href="/"><img src="/images/person_1.jpg"></a></div>
-    <span>2019-10-10</span>
-    <h2>Hello World</h2>
+    <span>2019-10-16</span>
+    <h2>MySQL数据约束</h2>
     
     </div>
 </div>
@@ -58,19 +58,21 @@
   <div class="lx-post">
     <div class="lx-entry padding">
       <div>
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <h1 id="MySQL数据约束"><a href="#MySQL数据约束" class="headerlink" title="MySQL数据约束"></a>MySQL数据约束</h1><p><img src="E:%5CNeedPhoto%5CMySQL.jpg" alt></p>
+<h3 id="数据约束：主键，外键，非空，默认，唯一"><a href="#数据约束：主键，外键，非空，默认，唯一" class="headerlink" title="* 数据约束：主键，外键，非空，默认，唯一"></a>* 数据约束：主键，外键，非空，默认，唯一</h3><h4 id="1-主键：PRIMARY-KEY-写在字段类型"><a href="#1-主键：PRIMARY-KEY-写在字段类型" class="headerlink" title="* 1.主键：PRIMARY KEY  写在字段类型"></a>* 1.主键：PRIMARY KEY  写在字段类型</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">（列名）字段名 数据类型  PRIMARY KEY;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>主键特性：非空且唯一</p>
+<p>主键自增： AUTO_INCREMENT PRIMARY KEY  写在字段类型后面，主键前面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">（列名）字段名 数据类型 AUTO_INCREMENT PRIMARY KEY;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h4 id="2-外键：从表的外键，必须在主表的主键中出现，写在创建语句的最后面"><a href="#2-外键：从表的外键，必须在主表的主键中出现，写在创建语句的最后面" class="headerlink" title="* 2.外键：从表的外键，必须在主表的主键中出现，写在创建语句的最后面"></a>* 2.外键：从表的外键，必须在主表的主键中出现，写在创建语句的最后面</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CONSTRAINT 外键名 FOREIGN KEY(年级主键字段名) REFERENCES 主表的名称(字段名);</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h4 id="3-非空："><a href="#3-非空：" class="headerlink" title="* 3. 非空："></a>* 3. 非空：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字段名 数据类型 NOT NULL;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<h3 id="4-默认："><a href="#4-默认：" class="headerlink" title="* 4.默认："></a>* 4.默认：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default 默认值，如果默认值是字符的，需要将字符加单引号</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-唯一"><a href="#5-唯一" class="headerlink" title="* 5.唯一"></a>* 5.唯一</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unique 写在字段类型后面</span><br></pre></td></tr></table></figure>
+
 
       </div>
     </div>
@@ -79,12 +81,12 @@
 <div class="lx-navigation">
 	<div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer_1.jpg)">
 		<div class="overlay"></div>
-		<a class="copy" href="/2019/10/10/我的第一篇博客/">
+		<a class="copy" href="#">
 			<div class="display-t">
 				<div class="display-tc">
 					<div>
 						<span>Next</span>
-						<h3>我的第一篇博客</h3>
+						<h3>没有更新的文章</h3>
 					</div>
 				</div>
 			</div>
@@ -92,12 +94,12 @@
 	</div>
         <div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer_2.jpg)">
 		<div class="overlay"></div>
-		<a class="copy" href="#">
+		<a class="copy" href="/2019/10/11/““JAVA面向对象总结/">
 			<div class="display-t">
 				<div class="display-tc">
 					<div>
 						<span>Prev</span>
-						<h3>没有更早的文章</h3>
+						<h3>““JAVA面向对象总结</h3>
 					</div>
 				</div>
 			</div>
