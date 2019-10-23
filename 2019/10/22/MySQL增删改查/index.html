@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>MySQL增删改查 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content>
+  <meta name="description" content>
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'hexo-theme-lx-master',
+    version: '1.4.5',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: '-'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "endless-river",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300|Noto+Serif+SC&amp;display=swap">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+</head>
+<body>
+<div class="single">
+<div id="page">
+<div id="lx-aside" style="background-image: url(/images/page-cover.jpg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="/images/person_1.jpg"></a></div>
+    <span>2019-10-22</span>
+    <h2>MySQL增删改查</h2>
+    
+    </div>
+</div>
+</div>
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <h1 id="MySQL增删改查"><a href="#MySQL增删改查" class="headerlink" title="MySQL增删改查"></a>MySQL增删改查</h1><p><img src="E:%5CNeedPhoto%5CMySQL.jpg" alt></p>
+<h3 id="1-创建数据库"><a href="#1-创建数据库" class="headerlink" title="* 1.创建数据库"></a>* 1.创建数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE 数据库名;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-进入数据库"><a href="#2-进入数据库" class="headerlink" title="* 2.进入数据库"></a>* 2.进入数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">USER 数据库名;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-删除数据库"><a href="#3-删除数据库" class="headerlink" title="* 3.删除数据库"></a>* 3.删除数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP DATEBASE 数据库名;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-创建数据表"><a href="#4-创建数据表" class="headerlink" title="* 4.创建数据表"></a>* 4.创建数据表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE 表名(字段1  字段类型,字段2  字段类型,~~~)</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-删除数据表"><a href="#5-删除数据表" class="headerlink" title="* 5.删除数据表"></a>* 5.删除数据表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE 表名;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-数据插入"><a href="#6-数据插入" class="headerlink" title="* 6.数据插入"></a>* 6.数据插入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO 表名(字段1,字段2,...) values(值1,值2,...);</span><br></pre></td></tr></table></figure>
+
+<h4 id="简写形式"><a href="#简写形式" class="headerlink" title="* 简写形式"></a>* 简写形式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT 表名(字段1,字段2,..) values(值1,值2,...);</span><br></pre></td></tr></table></figure>
+
+<h4 id="最精简形式"><a href="#最精简形式" class="headerlink" title="* 最精简形式"></a>* 最精简形式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT 表名 values(值1,值2,...);</span><br></pre></td></tr></table></figure>
+
+<h4 id="一次插入多行"><a href="#一次插入多行" class="headerlink" title="* 一次插入多行"></a>* 一次插入多行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO 表名(字段1,字段2,...) values(值1,值2,...),(值1,值2,...)---;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-更新语句"><a href="#7-更新语句" class="headerlink" title="* 7.更新语句"></a>* 7.更新语句</h3><p>UPDATE 表名 SET 字段1=值1,字段2=值2,…where条件; </p>
+<h3 id="8-删除语句"><a href="#8-删除语句" class="headerlink" title="* 8.删除语句"></a>* 8.删除语句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DALETE FROM 表名 where 条件; //有外键约束的，先删从表，再删主表</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-清空表"><a href="#9-清空表" class="headerlink" title="* 9.清空表"></a>* 9.清空表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TRUNCATE TABLE 表名;</span><br></pre></td></tr></table></figure>
+
+<p>truncate和delect区别：</p>
+<p>1.truncate 将清空日志，数据不可恢复</p>
+<p>2.truncate将重置自增列</p>
+<p>3.truncate 不可清空有外键约束的表</p>
+<h3 id="10-修改表结构"><a href="#10-修改表结构" class="headerlink" title="* 10.修改表结构"></a>* 10.修改表结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 表名+动作;</span><br></pre></td></tr></table></figure>
+
+<p>*动作：</p>
+<p>修改表名：rename 新表名；</p>
+<p>修改字段类型：modify 字段名 新类型；</p>
+<p>修改字段名字：change 老字段名 新字段名 新类型；</p>
+<p>*类型：</p>
+<p>添加字段：add 新字段名 新字段类型；</p>
+<p>删除字段： drop 字段名；</p>
+<h3 id="11-查询表结构"><a href="#11-查询表结构" class="headerlink" title="* 11.查询表结构"></a>* 11.查询表结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DESC 表名;</span><br></pre></td></tr></table></figure>
+
+<h3 id="12-最简单的查询语句"><a href="#12-最简单的查询语句" class="headerlink" title="* 12.最简单的查询语句"></a>* 12.最简单的查询语句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM 表名;</span><br></pre></td></tr></table></figure>
+
+<p>使用*作为通配符，表示所有字段</p>
+<h3 id="13-查询部分信息"><a href="#13-查询部分信息" class="headerlink" title="* 13.查询部分信息"></a>* 13.查询部分信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT 字段1,字段2,--FROM 表名;</span><br></pre></td></tr></table></figure>
+
+<h3 id="14-查询带有条件的信息"><a href="#14-查询带有条件的信息" class="headerlink" title="* 14.查询带有条件的信息()"></a>* 14.查询带有条件的信息()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM 表名 WHERE 字段1=值1 AND 字段2=值2;</span><br></pre></td></tr></table></figure>
+
+<h3 id="15-使用distinct关键词，查询不重复的记录"><a href="#15-使用distinct关键词，查询不重复的记录" class="headerlink" title="* 15.使用distinct关键词，查询不重复的记录"></a>* 15.使用distinct关键词，查询不重复的记录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT distinct 字段 FROM 表名;</span><br></pre></td></tr></table></figure>
+
+<h3 id="16-使用order-by关键词进行排序"><a href="#16-使用order-by关键词进行排序" class="headerlink" title="* 16.使用order by关键词进行排序"></a>* 16.使用order by关键词进行排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">order by 字段 DESC;</span><br><span class="line">SELECT * FROM 表名 order by 字段 DESC;</span><br></pre></td></tr></table></figure>
+
+<p>*ASC表示升序，可以省略；DESC表示降序；</p>
+<h3 id="17-使用limit关键词，限制行数"><a href="#17-使用limit关键词，限制行数" class="headerlink" title="* 17.使用limit关键词，限制行数"></a>* 17.使用limit关键词，限制行数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Limit n,m 从n+1行开始取，取m行，limit m,相当于limit 0，m</span><br></pre></td></tr></table></figure>
+
+<h3 id="18-模糊查询"><a href="#18-模糊查询" class="headerlink" title="* 18.模糊查询"></a>* 18.模糊查询</h3><p>使用like关键词进行模糊查询 %，表示任意长度的字符，0也是任意长度</p>
+<p>SELECT * FROM 表名 WHERE 字段 like ‘张%’;</p>
+<h3 id="19-聚合函数"><a href="#19-聚合函数" class="headerlink" title="* 19.聚合函数"></a>* 19.聚合函数</h3><p>求和SUM(字段)  平均 avg(字段)  最大MAX(字段)   最小MIN(字段)  个数COUNT(字段)或COUNT(*)</p>
+<h3 id="20-分组"><a href="#20-分组" class="headerlink" title="* 20.分组"></a>* 20.分组</h3><p>使用group by 字段1，字段2进行分组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM 表名 GROUP BY 字段;</span><br></pre></td></tr></table></figure>
+
+<h3 id="21-使用-as关键词"><a href="#21-使用-as关键词" class="headerlink" title="* 21.使用 as关键词"></a>* 21.使用 as关键词</h3><p>字段重命名，都是临时的，只对本次有效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT stuname as 姓名,nation as 民族，class as 班级 from 表名;</span><br></pre></td></tr></table></figure>
+
+<p>永久性重命名字段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALERT TABLE 表名 CHANGE 旧字段名 新字段名 字段类型;</span><br></pre></td></tr></table></figure>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer_1.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="#">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>没有更新的文章</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer_2.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2019/10/16/MySQL数据约束/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>MySQL数据约束</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.blleng.cn" target="_blank">Lx</a><br>
+  </div>
+</footer>
+</div>
+
+<button class="menu-trigger"></button>
+<div class="menu">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/person_1.jpg" alt="John Doe"></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>John Doe</p>
+          <span class="tagline">Hello, World!</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>页面</span>
+        <ul>
+          <li><a href="/guestbook">留言</a></li>
+        <li><a href="/about">关于</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>友链</span>
+        <ul>
+          <li> <a href="https://lx.blleng.cn" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.stellar.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
