@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>web前端总结（三） | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content>
+  <meta name="description" content>
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'hexo-theme-lx-master',
+    version: '1.4.5',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: '-'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "endless-river",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300|Noto+Serif+SC&amp;display=swap">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+</head>
+<body>
+<div class="single">
+<div id="page">
+<div id="lx-aside" style="background-image: url(/images/page-cover.jpg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="/images/person_1.jpg"></a></div>
+    <span>2019-11-03</span>
+    <h2>web前端总结（三）</h2>
+    
+    </div>
+</div>
+</div>
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <h1 id="web前端总结（三）"><a href="#web前端总结（三）" class="headerlink" title="web前端总结（三）"></a>web前端总结（三）</h1><h3 id="七-关于DIV-CSS布局"><a href="#七-关于DIV-CSS布局" class="headerlink" title="七.关于DIV+CSS布局"></a>七.关于DIV+CSS布局</h3><p>​        内联元素修饰，外联元素布局。如果要修饰内联元素标签，就要使用b标签或者u标签，修饰不换行的内容，就要用内联标签，但内联标签不干净，自带有修饰效果，所以我们需要一个干净的没有任何自带修饰效果的内联元素标签，w3c组织提出干净的内联标签这个标签是span标签。<br>​     与之相对象和匹配的，提出了一个干净的会自动换行的外联元素的标签，叫div标签。<br>​     span内联+div的外联标签都是干净的标签，div专门用于布局，span专门用于修饰。<br>​     因为网页中的每一块内容都是独立存在的，每一块都是布局，所以针对id选择符的特点，我们在div标签中如果要修饰div的css属性，用id选择符。修饰内联的span用class选择符。因为类可以有多个，又专门进行样式修饰使用的，所以span中使用class选择符。</p>
+<h5 id="1-内联元素的属性："><a href="#1-内联元素的属性：" class="headerlink" title="*1.内联元素的属性："></a>*1.内联元素的属性：</h5><ul>
+<li>字体font:</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">font-family</span>设置字体   <span class="selector-tag">font-size</span>字体大小   <span class="selector-tag">font-weight</span>: <span class="selector-tag">bold</span>;字体加粗    <span class="selector-tag">font-style</span>: <span class="selector-tag">italic</span>;倾斜效果  <span class="selector-tag">color</span>字体颜色</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>文本text:</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">text-align</span>文本对齐方式，左中右  <span class="selector-tag">text-decoration</span>:文本的下划线属性  <span class="selector-tag">text-indent</span>首行缩进</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>锚伪类，控制鼠标经过，鼠标选中，鼠标访问过后的效果</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span>&#123;<span class="attribute">color</span>:red&#125;<span class="selector-tag">--</span>默认样式</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>&#123; <span class="attribute">color</span>: red;&#125;<span class="selector-tag">----</span>鼠标经过</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:active</span>&#123; <span class="attribute">color</span>: green;&#125;<span class="selector-tag">--</span>鼠标选定，手点击别松</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:visited</span>&#123;<span class="attribute">color</span>: yellow; &#125;<span class="selector-tag">--</span>鼠标点一下</span><br></pre></td></tr></table></figure>
+
+<p>在网页使用锚伪类时，顺序不能改变，分别就是鼠标经过，鼠标选定，鼠标点击。</p>
+<h5 id="2-修饰外联元素的css属性："><a href="#2-修饰外联元素的css属性：" class="headerlink" title="*2.修饰外联元素的css属性："></a>*2.修饰外联元素的css属性：</h5><p>外联元素是一块，所以也叫块级元素，所以就有了网页中的盒子模型。</p>
+<p>盒子模型是指网页中的内容，盒子模型–border边框、content内容、内间距padding、margin外间距。所有的外联元素和内联元素都可以理解为一个盒子的存在。盒子模型中有宽度、高度、边框线、内间距、外间距</p>
+<ul>
+<li>width宽度，宽度有固定宽度和自适应宽度auto两种。 </li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">width</span>：200<span class="selector-tag">px</span>;固定宽度，<span class="selector-tag">width</span>：100%自适应宽度。</span><br></pre></td></tr></table></figure>
+
+<p> inherit(继承)宽度，当父级的盒子指定固定宽度，而包含的盒子不指定宽度，包含的盒子会继承父级盒子的宽度。由此可见，宽度可以继承，高度可以被内容撑起。<br>    注意：只有外联元素才有宽（设定宽度网页效果会生效）。内联元素也有宽高，但是是随着内容而变化的宽高，也就是指定内联元素的宽高是不会有效果的。</p>
+<ul>
+<li>height高度，高度有固定高和内容撑起的高两种。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">height</span>：200<span class="selector-tag">px</span>；固定的高度。高度的属性不写，真实的高度会被内容撑起。</span><br></pre></td></tr></table></figure>
+
+<p>注意：宽度的特征是会继承，高度的特征是不会继承父级元素的高，但会被内容撑起来。<br>    内容可能超过父级元素标签的宽高，所以我们用overflow控制内容溢出的属性。<br>    overflow的属性一般在父级元素标签中使用：<br>    overflow: hidden;当子级的标签超过父级标签，超出的部分隐藏掉。<br>    overflow: auto;超出部分会显示滚动条，如果不超出，就不显示滚动条。<br>    overflow: scroll;无论是否超出，都强制显示滚动条。<br>   总结：当使用宽度和高度的属性时，尽量写父级元素大盒子的宽度，别写高度，里面的小盒子只写高度，别写宽度。<br>          当宽度高度都是固定的高度，要使用overflow的属性。</p>
+<ul>
+<li>边框线border，可以同时定义四条线，可以定义单独一条线，一般我们采用简写的方式：</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">border</span>: <span class="selector-tag">dashed</span> 1<span class="selector-tag">px</span> <span class="selector-tag">red</span>;</span><br></pre></td></tr></table></figure>
+
+<p>注意：线的类型dashed虚线   dotted点线  solid实线  double双线（线的粗细不能低于1px）</p>
+<ul>
+<li><p>padding内间距，表示边框到内容之间的距离。设定盒子的内间距，会撑大盒子。</p>
+<p>内间距可以定义四个方向：当按照顺时针的方式进行每个padding的设定，盒子会被撑大相应的尺寸，和内容的间距，是padding-top和padding-left是真实的间距。当定义了padding-top间距，padding-bottom值失效（虽然值失效，这里失效是内容和边框间距失效，但撑大盒子的值并未失效），依次类推，定义padding-left，padding-right的值失效，但撑大效果并未失效。</p>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">padding</span>的简写效果：</span><br><span class="line">       <span class="selector-tag">padding</span>：10<span class="selector-tag">px---</span>内间距四个方向都是10<span class="selector-tag">px</span>间距</span><br><span class="line">       <span class="selector-tag">padding</span>：10<span class="selector-tag">px</span> 20<span class="selector-tag">px</span>；<span class="selector-tag">--</span>内间距上下10<span class="selector-tag">px</span>，左右20<span class="selector-tag">px</span>间距。</span><br><span class="line">       <span class="selector-tag">padding</span>：10<span class="selector-tag">px</span> 20<span class="selector-tag">px</span> 30<span class="selector-tag">px</span>；<span class="selector-tag">--</span>内间距上10<span class="selector-tag">px</span>，左右20<span class="selector-tag">px</span>，下30<span class="selector-tag">px</span>；</span><br><span class="line">       <span class="selector-tag">padding</span>：10<span class="selector-tag">px</span> 20<span class="selector-tag">px</span> 30<span class="selector-tag">px</span> 40<span class="selector-tag">px--</span>上10<span class="selector-tag">px</span>，右20<span class="selector-tag">px</span>，下30<span class="selector-tag">px</span>，左40<span class="selector-tag">px</span>（顺时针方向指定）</span><br></pre></td></tr></table></figure>
+
+<p> 固定宽高的盒子尺寸=宽度+内间距+border线<br>   总结：调整内容在大盒子中的位置，可以采用内间距padding，但内间距会撑大盒子，所以一定有属性也可以改变内容的间距，且不撑大盒子。这就是内容的外间距。<br>    继承大盒子的宽度的小盒子设定内间距为什么不受内间距撑大盒子的影响？<br>    当继承的宽度（不是固定设定的宽度）设定内间距不会撑大盒子。</p>
+<ul>
+<li>外间距margin，表示内容到边框的间距。简写的方式和内间距一样，也是顺时针进行设定。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">margin</span>的简写效果：</span><br><span class="line">       <span class="selector-tag">margin</span>：10<span class="selector-tag">px---</span>内间距四个方向都是10<span class="selector-tag">px</span>间距</span><br><span class="line">       <span class="selector-tag">margin</span>：10<span class="selector-tag">px</span> 20<span class="selector-tag">px</span>；<span class="selector-tag">--</span>内间距上下10<span class="selector-tag">px</span>，左右20<span class="selector-tag">px</span>间距。</span><br><span class="line">       <span class="selector-tag">margin</span>：10<span class="selector-tag">px</span> 20<span class="selector-tag">px</span> 30<span class="selector-tag">px</span>；<span class="selector-tag">--</span>内间距上10<span class="selector-tag">px</span>，左右20<span class="selector-tag">px</span>，下30<span class="selector-tag">px</span>；</span><br><span class="line">       <span class="selector-tag">margin</span>：10<span class="selector-tag">px</span> 20<span class="selector-tag">px</span> 30<span class="selector-tag">px</span> 40<span class="selector-tag">px--</span>上10<span class="selector-tag">px</span>，右20<span class="selector-tag">px</span>，下30<span class="selector-tag">px</span>，左40<span class="selector-tag">px</span>（顺时针方向指定）</span><br></pre></td></tr></table></figure>
+
+<p>  注意：外联元素和内联元素都可以使用内间距和外间距，但生效的位置不一样。<br>          外联元素进行内间距和外间距生效的是四个方向。<br>          内联元素的内间距生效的距离是左右和下，外间距生效的范围是水平的左右。<br>          利用外间距margin：0 auto；表示一个盒子的居中，但要注意，没有固定宽度的盒子是无法居中的。<br>   通常的盒子模型指的是内联元素还是外联元素？<br>    盒子模型–border边框，content内容，内间距padding，外间距margin<br>    内联元素也可以理解为盒子模型，因为都有边框内容和间距，但要注意，内联元素宽和高都是依靠内容撑起的，内间距依然撑大内联元素的盒子，外间距可以控制内联元素的外间距，但生效方式只有水平横向的位置。</p>
+<ul>
+<li>浮动float–盒子脱离了body文档流进行水平方向的移动。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">float</span>：<span class="selector-tag">left</span>左浮动     <span class="selector-tag">float</span>：<span class="selector-tag">right</span>右浮动     <span class="selector-tag">float</span>：<span class="selector-tag">none</span>不浮动</span><br></pre></td></tr></table></figure>
+
+<p>清除浮动clear：清除浮动并不是设定盒子不再浮动回到body层，而是清除前面盒子布局对于后面盒子布局的影响，可以操作浮动层的内容换行。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"tiger"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#tiger</span>&#123; <span class="attribute">clear</span>: both;&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>定位position–盒子脱离body的文档流，进行二维坐标的定位。二维坐标就是top上，下bottom，左left，右right，当使用定位时，上下二维坐标取一个值，左右二维坐标取一个值，就能定位到一个具体的位置。</li>
+</ul>
+<p>***相对定位relative：相对盒子当前的位置进行移动，原先位置内容消失，脱离文档流。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>搜狐<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#box</span>&#123;<span class="attribute">width</span>: <span class="number">200px</span>;<span class="attribute">height</span>: <span class="number">200px</span>; <span class="attribute">background</span>: red;<span class="attribute">position</span>: relative;<span class="attribute">top</span>: <span class="number">10px</span>;<span class="attribute">left</span>: <span class="number">10px</span>;&#125;</span><br><span class="line">		<span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>&#123;<span class="attribute">position</span>: relative;<span class="attribute">top</span>: <span class="number">1px</span>; <span class="attribute">left</span>: <span class="number">1px</span>;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>***绝对定位absolute：相对body的边框进行移动，原先位置内容取消，脱离文档流。</p>
+<p>注意：当大盒子定义了相对定位，小盒子定义绝对定位，小盒子的绝对定位不再参照body，而是参照大盒子进行移动。<br>      固定定位fixed：始终参照body的位置进行定位。<br>     使用定位时，如果定位的盒子发生了重叠，使用z-index来表示盒子层叠的优先级。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"son"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"small"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#box</span>&#123;<span class="attribute">width</span>: <span class="number">300px</span>;<span class="attribute">height</span>: <span class="number">300px</span>; <span class="attribute">background</span>: red; <span class="attribute">position</span>: relative; <span class="attribute">top</span>: <span class="number">10px</span>; <span class="attribute">left</span>: <span class="number">10px</span>;<span class="attribute">z-index</span>: <span class="number">1</span>;&#125;</span><br><span class="line"><span class="selector-id">#son</span>&#123; <span class="attribute">width</span>: <span class="number">200px</span>; <span class="attribute">height</span>: <span class="number">200px</span>; <span class="attribute">background</span>: blue; <span class="attribute">position</span>: relative; <span class="attribute">top</span>: -<span class="number">80px</span>; <span class="attribute">left</span>: <span class="number">80px</span>; <span class="attribute">z-index</span>:<span class="number">0</span> ;&#125;</span><br><span class="line"><span class="selector-id">#small</span>&#123;<span class="attribute">width</span>: <span class="number">100px</span>;<span class="attribute">height</span>: <span class="number">100px</span>; <span class="attribute">background</span>: green;  <span class="attribute">position</span>: relative; <span class="attribute">top</span>: -<span class="number">250px</span>; <span class="attribute">left</span>: <span class="number">250px</span>;<span class="attribute">z-index</span>: -<span class="number">1</span>;&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>visibility元素是否可见: hidden隐藏;visibility: hidden;表示盒子被隐藏但会有占位的效果。</li>
+<li>display转换：实现内联元素和外联元素的相互转换。<br>display: inline;外联转内联<br> display: block；内联转外联<br> display：inline-block；行内块级元素，在一行显示，但可以定义宽高。   </li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer_1.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="#">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>没有更新的文章</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer_2.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2019/11/03/web前端总结（二）/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>web前端总结（二）</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.blleng.cn" target="_blank">Lx</a><br>
+  </div>
+</footer>
+</div>
+
+<button class="menu-trigger"></button>
+<div class="menu">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/person_1.jpg" alt="John Doe"></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>John Doe</p>
+          <span class="tagline">Hello, World!</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>页面</span>
+        <ul>
+          <li><a href="/guestbook">留言</a></li>
+        <li><a href="/about">关于</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>友链</span>
+        <ul>
+          <li> <a href="https://lx.blleng.cn" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.stellar.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
