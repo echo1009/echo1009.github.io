@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>web前端总结(一) | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content>
+  <meta name="description" content>
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'hexo-theme-lx-master',
+    version: '1.4.5',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: '-'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "endless-river",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300|Noto+Serif+SC&amp;display=swap">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+</head>
+<body>
+<div class="single">
+<div id="page">
+<div id="lx-aside" style="background-image: url(/images/page-cover.jpg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="/images/person_1.jpg"></a></div>
+    <span>2019-11-03</span>
+    <h2>web前端总结(一)</h2>
+    
+    </div>
+</div>
+</div>
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <h1 id="web前端总结（一）"><a href="#web前端总结（一）" class="headerlink" title="web前端总结（一）"></a>web前端总结（一）</h1><h3 id="1-什么是HTML"><a href="#1-什么是HTML" class="headerlink" title="1.什么是HTML?"></a>1.什么是HTML?</h3><h6 id="HTML——超文本标记语言，以-html为扩展名。-htm网页文件"><a href="#HTML——超文本标记语言，以-html为扩展名。-htm网页文件" class="headerlink" title="HTML——超文本标记语言，以.html为扩展名。.htm网页文件"></a>HTML——超文本标记语言，以.html为扩展名。.htm网页文件</h6><p> html语言–表名学习重点是代码部分。<br> 标记–生成网页的代码都是单独出现或成对出现的。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span>--成对出现    <span class="tag">&lt;<span class="name">img</span> /&gt;</span>--单独出现</span><br></pre></td></tr></table></figure>
+
+<h4 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h4><p>IE浏览器、FF火狐浏览器、Chrome谷歌浏览器、Safari苹果浏览器、O欧朋浏览器</p>
+<p>不同的浏览器，显示的效果不同，通常和浏览器或设备的宽度有关。</p>
+<h3 id="2-编写写代码工具-HBuilder"><a href="#2-编写写代码工具-HBuilder" class="headerlink" title="2.编写写代码工具:HBuilder"></a>2.编写写代码工具:HBuilder</h3><p>***使用工具的方法：</p>
+<p>左侧项目管理器中—右键—新建web项目—项目名称（basic基本的、project项目、demo示例）—选择路径，尽量使用其他盘，不要放C盘或桌面—创建成功，相应的路径部分生成文件，css目录保存网页中的样式，img目录存放网页中的图片，js目录存放网页脚本，index.html文件是网页的入口文件，也叫索引文件，整个网页浏览依靠这个index.html文件。</p>
+<ul>
+<li>注意：站点名称不能是汉字，严格区分大小写，建议字母和数字组合。</li>
+</ul>
+<h3 id="3-网页的结构"><a href="#3-网页的结构" class="headerlink" title="3.网页的结构"></a>3.网页的结构</h3><p>​    打开index.html文件，会发现有默认的网页结构。默认的结构是h5界面的。</p>
+<p>​    html发展历程：html4.0，用表格进行布局<br>​                     xhtml1.0+css2.0，流行div+css布局<br>​                     HTML5+css3.0，当下流行的</p>
+<p>​    完整的开发模板调用：！+tab</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype html&gt;</span>文档声明--本文档是html网页的文档文件。</span><br></pre></td></tr></table></figure>
+
+<p>​    网页的结构是Html双标签包含网页中的所有的内容。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span>--针对网页的定义</span><br><span class="line">   <span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span>--针对网页中内容的显示</span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在head标签中的标签：</p>
+<meta charset="UTF-8">--meta元标记，定义网页
+
+<p>charset字符集设置，utf-8和GB2312对应，utf-8中文和英文都支持  gb2312支持中 <title>Document</title>标签控制网页标题栏的内容。</p>
+<p>body中内容的输入：</p>
+<p>不用写&lt;&gt;，直接写标签名称+tab让软件提示。</p>
+<ul>
+<li>注意：网页中的回车和空格都不影响网页效果，也就是说网页中回车和空格无效。</li>
+<li>br标签是单标签，所以/前要加空格。</li>
+</ul>
+<p>meta元标签可以定义的：<br>   <meta name="viewport" content="width=device-width, initial-scale=1.0"><br>设定视图的自适应宽度。网页中的内容在不同设备里显示宽度不一致。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"Keywords"</span> <span class="attr">content</span>=<span class="string">"网页关键字"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"Description"</span> <span class="attr">content</span>=<span class="string">"网页的描述"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="四-基本的标签"><a href="#四-基本的标签" class="headerlink" title="四.基本的标签"></a>四.基本的标签</h3><p>1.使用标签的注意事项：</p>
+<p>​        无论何种标签，标签必须使用小写字母表示，属性必须使用小写字母，标点符号必须使用不在输入法情况下输入效果。标签必须正确的嵌套。<br>​      使用单标签：注意/前加空格。</p>
+<pre><code>使用双标签：先写标签，再往标签内部插入其他标签或内容。</code></pre><p>​    网页中所有的内容都必须被标签包含，这样才能控制内容的修饰。加标签方便控制</p>
+<p>2.为标签添加属性方法,在首标签中添加空格，激活软件的提示功能，进而进行选择属性的插入。</p>
+<p>style属性：可以引出相关的属性对，一组属性对用表示结束。</p>
+<p>align属性：可以控制水平对齐方式。</p>
+<p>3.注释：针对代码进行解释，在网页中不显示。先写注释内容，然后鼠标拖拽选择注释内容，ctrl+/</p>
+<p>4.自动跳转网页设置：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"refresh"</span> <span class="attr">content</span>=<span class="string">"5;url=http://www.baidu.com"</span> /&gt;</span> 自动跳转</span><br><span class="line">    5;url=http://www.baidu.com是content中的值。</span><br></pre></td></tr></table></figure>
+
+<p>5.hn的标题：n表示1-6，1字体最大，6字体最小。外联元素。外联元素占满了一行。</p>
+<p>6.p标签表示段落标记，外联元素。</p>
+<p>***总结：所有的标签都分为不会自动换行的内联元素和会自动换行的外联元素，外联元素也叫块级        元素。</p>
+<p>7.如何验证陌生标签是内联和外联元素？</p>
+<p>外联元素会自动换行，可以添加对齐的属性，所以可以用来布局。</p>
+<p>内联元素不会自动换行，不可以添加对齐的属性，无法布局，特点是只能进行修饰。<br>外联元素–h标题标签和p段落标签<br>内联元素–b加粗、u下划线、i倾斜、s删除、上标sup和下标sub。</p>
+<p>8.相对路径和绝对路径</p>
+<p>绝对路径–可以是根目录开头的路径，如d:/abc/1.jpg<br>             –也可以是网上的网址路径，如<a href="http://www.baidu.com/img/1.jpg" target="_blank" rel="noopener">http://www.baidu.com/img/1.jpg</a><br>     相对路径–找文件之间的相对关系，平级文件直接写文件名。上一级文件用../表示。</p>
+<p>9.a标签–内联元素超链接标记，自带字体和蓝色，有下划线效果，必须添加href属性，否则不会有    超链接的效果，如href没有具体的地址，用#表示空连接。target属性窗口的打开方式，_blank新    窗口打开，_self本窗口内跳转。<br>     注意：a标签中的href和img标签中的src有区别的：<br>           href是从当前文件连接过去。<br>           src是把远处的文件拿过来展示。</p>
+<p>10.图片标签img标签，src表示图片的路径，站点中是相对路径。alt图片的描述，title属性是图片的    提示信息，鼠标放在图片上的提示。切记，网页中图片不要用宽度width和高度height属性去控制    图片的尺寸，网页应用图片之前要事先修改好图片的大小。图片是内联元素。</p>
+<p>11.图片的三种格式区别:</p>
+<p>gif动图–也可以用来表示背景透明的图片，常用来表示颜色单一的logo图。</p>
+<p> jpg图–网页常用的图片，放大后会失真，变模糊。<br> png图–对分辨率要求较高，文件占位比较大。</p>
+<p>12.列表</p>
+<ul>
+<li>ol有序列表，ul无序列表，dl自定义列表–列表都是外联元素。</li>
+<li>ol有序列表–ol中属性可以用type设定有序列表的样式，1、a、A、i、I表示。用start表示从第几个列表符号开始。</li>
+<li>ul列表中可以使用属性type，circle是空心点，disc实心点，square是矩形点。</li>
+<li>dl表示自定义列表，dt表示列表名称，dd对于名称的解释</li>
+</ul>
+<p>13、table表格-table表示表格，th表示列首（一列中第一个单元格），tr表示一行，td表示一个单元格。<br>      table中的属性，border表格的边框，cellspacing表示表格的单元格之间的距离，cellpadding表示内容到单元格之间的内间距，bordercolor边框颜色，bgcolor表格的背景颜色，width宽度，height高度。<br>      行占位符和列占位符的用法：操作合并单元格的方法<br>      行占位符rowspan–占行成列的效果。<br>      列占位符colspan–占列成行的效果。<br>      切记一点：使用合并单元格，要先判断占行还是占列，然后添加占位符，删除对应的占位符。<br>  14、在表格中的thead标签，只可以用对其方式控制水平位置的变化，而不能进行样式的修饰。<br>      在表格中的tbody标签，使用方法遵循表格中tr和td内容显示，使用属性也都生效。<br>      在表格中的tfoot表示页脚，页脚中也可以用tr和td去显示内容。可以使用对齐方式。<br>  15、表单form标签，表单是搜集数据的，是外联元素，属性action表示将表单搜集的输入的内容传递到的目的地路径。<br>      属性method表示，把搜集的数据用何种方式传递到action定义的地址中去。<br>      在表单中，有三个主要的标签：input输入框   select选择下拉框  textarea文本域<br>      注意：这三个标签都要被form标签去包含。<br>      在input中最重要的是type属性，type属性表明是何种表单元素。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"tiger"</span>&gt;</span>用户名：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">"请输入您的账号"</span> <span class="attr">id</span>=<span class="string">"tiger"</span> <span class="attr">maxlength</span>=<span class="string">"5"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>解释：type=”text”表明这是一个可以输入文本的输入框，value文本框中默认的内容，id给文本框加上id，maxlength表示这个文本框最大输入几个字符。因为html中所有内容要被包含，所以添加label标签包含用户名，label中属性for的值对应相关表单的id值，只能对应id，不能对应别的参数，id必须使用英文，不得使用汉字。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">id</span>=<span class="string">"pwd"</span> <span class="attr">value</span>=<span class="string">"******"</span>/&gt;</span></span><br><span class="line">      密码的type属性是password！</span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"man"</span>&gt;</span>男：<span class="tag">&lt;/<span class="name">label</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">id</span>=<span class="string">"man"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>单选的type值是radio，为实现单选的效果，必须为input添加name属性。name值一致，才能出现单选的效果。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> /&gt;</span></span><br><span class="line">多选框的type值为checkbox，表示可以多个选择。</span><br><span class="line">     <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> /&gt;</span>type为file是上传文件的按钮。</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交"</span> /&gt;</span>type为submit是提交按钮，点击提交按钮，会把form搜集的文件通过method定义的方式传递到action定义的地址去。</span><br><span class="line">     <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"reset"</span> <span class="attr">value</span>=<span class="string">"提交"</span> /&gt;</span>type为reset重置，会把输入的内容清空。</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"提交"</span> /&gt;</span>type为button按钮，单纯点击，没有效果。</span><br></pre></td></tr></table></figure>
+
+<pre><code>按钮也可以直接作为标签使用--如：&lt;button&gt;按钮&lt;/button&gt;</code></pre><p>16、表单中的下拉菜单select标签，包含的是option标签，option的属性有selected=”selected”选择默认的选项。<br>17、表单中的textarea表示文本域，rows表示文本域的高度，cols表示文本域的宽度。<br>总结：表单中的form是外联元素，而form中所有的内容都是内联元素。换行要用br强制换行。表单的高级应用：<br> 表单中在HTML5中新增的input中type的属性：<br>   1、email，强制定义网页中的必须输入邮箱。如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"email"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>   2、number，强制定义输入的是数字，数字可以增加或减少。如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"number"</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>   3、输入日期格式，year年，month月，day日，week周，time时间，datetime日期加时间格式：<br>      如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"year"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>   4、表示控制范围：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"range"</span> /&gt;</span>，min属性表示最小，max表示最大</span><br></pre></td></tr></table></figure>
+
+<p>   5、只读的表单：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">"张三很坏"</span> <span class="attr">readonly</span>=<span class="string">"readonly"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>表单中新增的属性：<br>    placeholder属性，当输入内容，默认的内容就不显示。如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"点我你看看我"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>​    required属性，设置表单中不能为空，必须输入内容。如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">required</span>=<span class="string">"required"</span> <span class="attr">value</span>=<span class="string">"这个不能为空啊"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>​    6、label标签用来将内容和表单中的input进行绑定，利用label中for属性的值要和input中的id值对应，这样点击label的内容，就可以<br>​       把光标设置在input的文本框中。</p>
+<p>19.form中的fieldset标签包含legend标签，显示效果是美化的表单，线在文字中间，包含form中所有的内容。</p>
+<form action="#" method="post">
+       <fieldset id>
+           <legend>注册界面</legend>
+           <label for="name">用户名：</label>
+           <input type="text" id="name" value="请输入内容">
+       </fieldset>
+    </form>       
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer_1.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="#">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>没有更新的文章</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer_2.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2019/10/31/Android六大基本布局/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>Android六大基本布局</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.blleng.cn" target="_blank">Lx</a><br>
+  </div>
+</footer>
+</div>
+
+<button class="menu-trigger"></button>
+<div class="menu">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/person_1.jpg" alt="John Doe"></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>John Doe</p>
+          <span class="tagline">Hello, World!</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>页面</span>
+        <ul>
+          <li><a href="/guestbook">留言</a></li>
+        <li><a href="/about">关于</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>友链</span>
+        <ul>
+          <li> <a href="https://lx.blleng.cn" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.stellar.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
