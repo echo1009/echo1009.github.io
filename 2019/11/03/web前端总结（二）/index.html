@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>web前端总结（二） | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content>
+  <meta name="description" content>
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'hexo-theme-lx-master',
+    version: '1.4.5',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: '-'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "endless-river",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300|Noto+Serif+SC&amp;display=swap">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+</head>
+<body>
+<div class="single">
+<div id="page">
+<div id="lx-aside" style="background-image: url(/images/page-cover.jpg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="/images/person_1.jpg"></a></div>
+    <span>2019-11-03</span>
+    <h2>web前端总结（二）</h2>
+    
+    </div>
+</div>
+</div>
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <h1 id="web前端总结（二）"><a href="#web前端总结（二）" class="headerlink" title="web前端总结（二）"></a>web前端总结（二）</h1><h3 id="五-网页中的多媒体信息和新增的HTML标签："><a href="#五-网页中的多媒体信息和新增的HTML标签：" class="headerlink" title="五.网页中的多媒体信息和新增的HTML标签："></a>五.网页中的多媒体信息和新增的HTML标签：</h3><ul>
+<li>HTML5新增标签：这些标签都是放在body中的内容部分。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">header--这个标签表示网页的头部信息，头部一般放网页的logo标志和其他相关信息。</span><br><span class="line">nav导航标签--一般放网页中的导航信息。</span><br><span class="line">article标签--表示网页中主要的内容。</span><br><span class="line">section定义内容中的节，自然段。</span><br><span class="line">aside--表示和内容相关的内容。如左侧是站内导航，右侧是关于导航的详细信息。</span><br><span class="line">footer--表示网页的底部，一般放网页中的版权和警告信息。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>关于网页中的多媒体信息：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">bgsound标签控制网页背景音乐。</span><br><span class="line"><span class="tag">&lt;<span class="name">bgsound</span> <span class="attr">src</span>=<span class="string">"video/1.mp3"</span>&gt;</span><span class="tag">&lt;/<span class="name">bgsound</span>&gt;</span></span><br><span class="line">audio标签网页中可见的mp3的播放：</span><br><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">autoplay</span>=<span class="string">"autoplay"</span> <span class="attr">controls</span>=<span class="string">"controls"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"video/1.mp3"</span>&gt;</span><span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br><span class="line">autoplay自动播放，controls显示播放控件。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>关于网页中的视频播放： object标签、video标签</li>
+</ul>
+<p>video标签：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">video</span> <span class="attr">autoplay</span>=<span class="string">"autoplay"</span> <span class="attr">controls</span>=<span class="string">"controls"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"video/1.mp4"</span>&gt;</span><span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">width</span>=<span class="string">"600"</span> <span class="attr">height</span>=<span class="string">"300"</span> <span class="attr">controls</span> <span class="attr">src</span>=<span class="string">"birds.mp4"</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">width</span>=<span class="string">"200"</span> <span class="attr">height</span>=<span class="string">"100"</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"birds.mp4"</span> <span class="attr">type</span>=<span class="string">"video/mp4"</span>&gt;</span><span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>object标签：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">object</span> <span class="attr">class</span> <span class="attr">id</span>=<span class="string">"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"</span> <span class="attr">codebase</span>=<span class="string">"http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0"</span> <span class="attr">width</span>=<span class="string">"500"</span> <span class="attr">height</span>=<span class="string">"440"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"movie"</span> <span class="attr">value</span>=<span class="string">"flvplayer.swf"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"quality"</span> <span class="attr">value</span>=<span class="string">"high"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"allowFullScreen"</span> <span class="attr">value</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"FlashVars"</span> <span class="attr">value</span>=<span class="string">"vcastr_file=video/abc.flv&amp;LogoText=www.iloveyou.com&amp;BufferTime=3&amp;IsAutoPlay=0"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">embed</span> <span class="attr">src</span>=<span class="string">"flvplayer.swf"</span> <span class="attr">allowfullscreen</span>=<span class="string">"true"</span> <span class="attr">flashvars</span>=<span class="string">"vcastr_file=video/abc.flv&amp;LogoText=www.iloveyou.com&amp;IsAutoPlay=0"</span> <span class="attr">quality</span>=<span class="string">"high"</span> <span class="attr">pluginspage</span>=<span class="string">"http://www.macromedia.com/go/getflashplayer"</span> <span class="attr">type</span>=<span class="string">"application/x-shockwave-flash"</span> <span class="attr">width</span>=<span class="string">"500"</span> <span class="attr">height</span>=<span class="string">"440"</span>&gt;</span><span class="tag">&lt;/<span class="name">embed</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在网页中嵌套其他网页：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"http://www.baidu.com"</span> <span class="attr">width</span>=<span class="string">""</span> <span class="attr">height</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="六-网页中的css样式"><a href="#六-网页中的css样式" class="headerlink" title="六.网页中的css样式"></a>六.网页中的css样式</h3><p>网页中的CSS样式：对于网页内容进行修饰。<br>CSS文件叫层叠样式表，用来修饰网页中内容的样式，层叠表示修饰样式是多层存在的。</p>
+<ul>
+<li><p>CSS的文件扩展名是.css，在站点的css目录中建立层叠样式表的文件，一般用css.css或者style.css命名。<br>CSS样式可以修饰的内容是：内联元素标签和外联元素的标签。</p>
+<pre><code>内联元素的特征：不会换行，重点在修饰，用css修饰内联元素自身之外的属性。
+外联元素的特征：自动换行，重点在布局，用css修饰外联元素进行布局时的宽度高度和位置等信息。</code></pre><p>  总结：所有的HTML标签分为单标签和双标签，这两种标签都能用css修饰。</p>
+<pre><code>所有的html标签分为内联元素和外联元素（块级元素），分别用css修饰各种的特点。</code></pre></li>
+<li><p>使用css的方法，在css目录简历style.css的文件。然后再index.html入口文件的head部分，添加link的标签，link中的href属性来关联css的样式表文件。</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"css/style.css"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>rel属性表示样式的标签，tyle属性定义css的文本，href定义连接外部文件的路径。</p>
+<p>测试是否连接成功：<br>     在style.css中测试body{ background-color: blue;}，浏览器如果显示蓝色，表示连接成功。<br>     其中body叫css的选择符，在{ }中的background-color表示body的背景颜色，blue设置body的背景颜色为蓝色。<br>  注意：使用css时，第一行切记添加定义css的字符集。@charset “utf-8”;</p>
+<ul>
+<li><p>在网页文件index.html中的head标签中写入style的双标签，标签中写具体的css样式。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line">	body&#123; background-color: green;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在网页文件index.html中的head标签中写入style的双标签，标签中写具体的css的外部引用文件。</p>
+</li>
+</ul>
+<h4 id="css的选择符："><a href="#css的选择符：" class="headerlink" title="css的选择符："></a>css的选择符：</h4><ul>
+<li><p>选择符{属性1：值1；属性2：值2；…}</p>
+</li>
+<li><p>常用选择符：类型选择符、元素选择符、标签选择符</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在index.html中：<span class="tag">&lt;<span class="name">h1</span>&gt;</span>我是内容<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在<span class="selector-tag">style</span><span class="selector-class">.css</span>中：<span class="selector-tag">h1</span>&#123;<span class="attribute">color</span>:red&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>id选择符，给html的标签设置id属性，在css中，用#id名称进行引用。</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在index.html中：<span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">“tiger”</span>&gt;</span>我是内容<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在<span class="selector-tag">style</span><span class="selector-class">.css</span>中：<span class="selector-id">#tiger</span>&#123;<span class="attribute">color</span>:red&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：id选择符具有唯一性，所以id的名称只能定义一次。id并不是只能使用一次。</p>
+<ul>
+<li><p>class选择符，类选择符，类选择符可以定义一次，可以多次使用。在css中用.加类名引用。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"tiger"</span>&gt;</span>我是另外一个h1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"tiger"</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在<span class="selector-tag">style</span><span class="selector-class">.css</span>中：<span class="selector-class">.tiger</span>&#123;<span class="attribute">color</span>:red&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>注意：class选择符和id选择符的区别：class可以定义多个，id只能定义一个。</p>
+<p>案例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在html中的代码：</span><br><span class="line">                <span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"tiger apple small"</span>&gt;</span>我是另外一个h1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"banana daxiao"</span>&gt;</span>我是id的段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">在<span class="selector-tag">css</span>中：</span><br><span class="line">             <span class="selector-class">.tiger</span>&#123; <span class="attribute">font-size</span>: <span class="number">30px</span>;&#125;</span><br><span class="line">	         <span class="selector-class">.apple</span>&#123; <span class="attribute">color</span>: red;&#125;</span><br><span class="line">	         <span class="selector-class">.small</span>&#123; <span class="attribute">text-decoration</span>: underline;&#125;</span><br><span class="line">	         <span class="selector-id">#banana</span>&#123; <span class="attribute">color</span>: green;&#125;</span><br><span class="line">	         <span class="selector-id">#daxiao</span>&#123;<span class="attribute">font-size</span>: <span class="number">70px</span>;&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>交集选择符，由类型选择符和id选择符或类型选择符和class选择符组合使用生成的选择符。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在index.html中：</span><br><span class="line">          <span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"tiger"</span>&gt;</span>我是另外一个h1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"tiger"</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在<span class="selector-tag">style</span><span class="selector-class">.css</span>中：<span class="selector-class">.tiger</span>&#123;<span class="attribute">color</span>:red;&#125;</span><br><span class="line">                       h1.tiger&#123;属性：值&#125;</span><br><span class="line">                        p.tiger&#123;属性：值&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意:交集选择符p.tiger{属性：值}一定类型选择符和类名引用相连，不能有空格。</p>
+<ul>
+<li>并集选择符–表示平级的选择符之间的关系。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在html中：   <span class="tag">&lt;<span class="name">h1</span>&gt;</span>我是另外一个h1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	                <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是id的段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在<span class="selector-tag">css</span>文件中： <span class="selector-tag">h1</span>,<span class="selector-tag">p</span>&#123;<span class="attribute">color</span>: red;&#125;   <span class="selector-tag">---</span>表示<span class="selector-tag">h1</span>的标签和<span class="selector-tag">p</span>的标签都遵循这个属性。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>混合选择符，交集选择符，类型选择符，id选择符，class选择符，同时使用。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在<span class="selector-tag">css</span>中：<span class="selector-tag">h1</span><span class="selector-class">.apple</span>,<span class="selector-tag">h5</span><span class="selector-id">#banana</span>&#123;&#125;<span class="selector-tag">--h1</span>的<span class="selector-tag">apple</span>类，和<span class="selector-tag">h5</span>的<span class="selector-tag">id</span>为<span class="selector-tag">bananan</span>的都遵循此属性。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>包含选择符，也叫后代选择符—表示包含关系的选择符。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在html中： <span class="tag">&lt;<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在<span class="selector-tag">css</span>中：<span class="selector-tag">h1</span> <span class="selector-tag">p</span>&#123;<span class="attribute">color</span>: red;&#125;<span class="selector-tag">--</span>表示<span class="selector-tag">h1</span>中包含的<span class="selector-tag">p</span>标签的属性。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>*通配符–表示所有的类型选择符都遵循此属性。 *{属性：值}</li>
+</ul>
+<p>案例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">在index.html中：</span><br><span class="line">         <span class="tag">&lt;<span class="name">h1</span>&gt;</span>八仙过海<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	   <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>八仙<span class="tag">&lt;/<span class="name">a</span>&gt;</span>那天有空，想要<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"yanse"</span>&gt;</span>过海<span class="tag">&lt;/<span class="name">a</span>&gt;</span>，</span><br><span class="line">	   	于是一个一个的拿出<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>法宝<span class="tag">&lt;/<span class="name">a</span>&gt;</span>，</span><br><span class="line">	   	就<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"yanse ziti"</span>&gt;</span>过海<span class="tag">&lt;/<span class="name">a</span>&gt;</span>了<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在<span class="selector-tag">CSS</span>文件中：</span><br><span class="line">        *&#123; <span class="attribute">font-size</span>: <span class="number">35px</span>;&#125;</span><br><span class="line">       <span class="selector-tag">h1</span>&#123; <span class="attribute">color</span>: red;&#125;</span><br><span class="line">        <span class="selector-tag">p</span>&#123; <span class="attribute">font-size</span>: <span class="number">18px</span>;&#125;</span><br><span class="line">      <span class="selector-tag">p</span> <span class="selector-tag">a</span>&#123; <span class="attribute">color</span>: blueviolet;&#125;</span><br><span class="line">    <span class="selector-tag">p</span> <span class="selector-tag">a</span><span class="selector-class">.yanse</span>&#123; <span class="attribute">color</span>: darkkhaki; <span class="attribute">text-decoration</span>: none;&#125;</span><br><span class="line">   <span class="selector-tag">p</span> <span class="selector-tag">a</span><span class="selector-class">.ziti</span>&#123;<span class="attribute">font-style</span>: italic; <span class="attribute">font-weight</span>: bold;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在CSS中的选择符的优先级：当选择符定义同一个标签的元素，鉴别以哪种选择符的属性为准。<br>   id选择符&gt;class选择符&gt;类型选择符&gt;通配符*<br>  优先级中行内样式优先级最高！<br>  注意：在选择符中，行内样式定义的CSS距离内容最近，所以优先级最高，也就是县官不如现管！<br>  因为ID具有唯一性，而class可以定义多个，所以id大于class选择符。<br>  class可以单独定义到具体的html标签，所以针对性比类型选择符强，所以优先级比类型选择高。</p>
+<p> *代表全局，范围太广泛，所以优先级是最低的。</p>
+<p>当我们使用样式，针对大多数的样式，可以使用* 进行定义，个别的样式单独存在的一种样式用id定义，凡是出现多次相同样式用class定义。<br>     当用通配符进行定义了属性，其他选择符定义的属性和通配符相同，就会把*通配符定义的属性冲突掉。</p>
+<p>案例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">在index.html中：</span><br><span class="line">          <span class="tag">&lt;<span class="name">h1</span>&gt;</span>实训室教师使用管理规定<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">	  	<span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"yanse"</span>&gt;</span>不准吃饭1不准吃饭1不准吃饭1不准吃饭1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	  	<span class="tag">&lt;<span class="name">li</span>&gt;</span>不准吃饭2不准吃饭2不准吃饭2不准吃饭2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	  	<span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"yanse"</span>&gt;</span>不准吃饭3不准吃饭不准吃饭不准吃饭<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	  	<span class="tag">&lt;<span class="name">li</span>&gt;</span>不准吃饭4不准吃饭不准吃饭不准吃饭<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	  	<span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"yanse"</span>&gt;</span>不准吃饭5不准吃饭不准吃饭不准吃饭<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	  	<span class="tag">&lt;<span class="name">li</span>&gt;</span>不准吃饭6不<span class="tag">&lt;<span class="name">b</span> <span class="attr">class</span>=<span class="string">"italic"</span>&gt;</span>准吃<span class="tag">&lt;/<span class="name">b</span>&gt;</span>饭不准吃饭<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	  	<span class="tag">&lt;<span class="name">li</span>&gt;</span>不准吃饭7不准吃饭不准吃饭不准吃饭<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	  	<span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">"tiger"</span>&gt;</span>不准吃饭8不准吃饭不准吃饭不准吃饭<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	  	<span class="tag">&lt;<span class="name">li</span>&gt;</span>不准吃饭9不准吃饭<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>不准吃饭<span class="tag">&lt;/<span class="name">a</span>&gt;</span>不准吃饭<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	  	<span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"qingxie"</span>&gt;</span>不准吃饭10不准吃饭不准吃饭不准吃饭<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">在<span class="selector-tag">css</span>中的属性：</span><br><span class="line">         *&#123; <span class="attribute">color</span>: blue; <span class="attribute">font-size</span>: <span class="number">28px</span>;&#125;</span><br><span class="line">     <span class="selector-tag">h1</span>&#123;<span class="attribute">font-size</span>: <span class="number">50px</span>; <span class="attribute">font-family</span>: <span class="string">"微软雅黑"</span>;&#125;</span><br><span class="line">     <span class="selector-tag">ol</span> <span class="selector-tag">li</span><span class="selector-class">.yanse</span>&#123; <span class="attribute">color</span>: red;&#125;</span><br><span class="line">     <span class="selector-tag">ol</span> <span class="selector-tag">li</span><span class="selector-id">#tiger</span>&#123; <span class="attribute">font-weight</span>: bold;&#125;</span><br><span class="line">     <span class="selector-tag">ol</span> <span class="selector-tag">li</span><span class="selector-class">.qingxie</span>&#123; <span class="attribute">font-style</span>: italic;&#125;</span><br><span class="line">     <span class="selector-tag">ol</span> <span class="selector-tag">li</span> <span class="selector-tag">b</span>&#123;<span class="attribute">text-decoration</span>: underline;&#125;</span><br><span class="line">     <span class="selector-tag">ol</span> <span class="selector-tag">li</span> <span class="selector-tag">b</span><span class="selector-class">.italic</span>,<span class="selector-tag">ol</span> <span class="selector-tag">li</span> <span class="selector-tag">a</span>&#123; <span class="attribute">color</span>: darkgoldenrod;&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 注意：font-family设置字体<br>          font-size字体大小<br>          font-weight: bold;字体加粗<br>          font-style: italic;倾斜效果<br>          text-decoration: underline;添加和删除下划线  underline是添加下划线，none是取消下划线</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer_1.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="#">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>没有更新的文章</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer_2.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2019/11/03/web前端总结-一/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>web前端总结(一)</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.blleng.cn" target="_blank">Lx</a><br>
+  </div>
+</footer>
+</div>
+
+<button class="menu-trigger"></button>
+<div class="menu">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/person_1.jpg" alt="John Doe"></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>John Doe</p>
+          <span class="tagline">Hello, World!</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>页面</span>
+        <ul>
+          <li><a href="/guestbook">留言</a></li>
+        <li><a href="/about">关于</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>友链</span>
+        <ul>
+          <li> <a href="https://lx.blleng.cn" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.stellar.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
