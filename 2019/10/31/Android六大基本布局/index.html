@@ -59,7 +59,50 @@
     <div class="lx-entry padding">
       <div>
         <h1 id="Android六大基本布局"><a href="#Android六大基本布局" class="headerlink" title="Android六大基本布局"></a>Android六大基本布局</h1><p><img src="E:%5CNeedPhoto%5CAndroid.png" alt></p>
-<h3 id="一．基本理论"><a href="#一．基本理论" class="headerlink" title="一．基本理论"></a>一．基本理论</h3><h5 id="Android六大基本布局分别是："><a href="#Android六大基本布局分别是：" class="headerlink" title="Android六大基本布局分别是："></a>Android六大基本布局分别是：</h5><h5 id="线性布局LinearLayout、"><a href="#线性布局LinearLayout、" class="headerlink" title="线性布局LinearLayout、"></a>线性布局LinearLayout、</h5><h5 id="表格布局TableLayout、"><a href="#表格布局TableLayout、" class="headerlink" title="表格布局TableLayout、"></a>表格布局TableLayout、</h5><h5 id="相对布局RelativeLayout、"><a href="#相对布局RelativeLayout、" class="headerlink" title="相对布局RelativeLayout、"></a>相对布局RelativeLayout、</h5><h5 id="层布局FrameLayout、"><a href="#层布局FrameLayout、" class="headerlink" title="层布局FrameLayout、"></a>层布局FrameLayout、</h5><h5 id="绝对布局AbsoluteLayout、"><a href="#绝对布局AbsoluteLayout、" class="headerlink" title="绝对布局AbsoluteLayout、"></a>绝对布局AbsoluteLayout、</h5><h5 id="网格布局GridLayout。"><a href="#网格布局GridLayout。" class="headerlink" title="网格布局GridLayout。"></a>网格布局GridLayout。</h5><h3 id="二-各个布局的使用"><a href="#二-各个布局的使用" class="headerlink" title="二.各个布局的使用"></a>二.各个布局的使用</h3><h5 id="（一）线性布局LinearLayout"><a href="#（一）线性布局LinearLayout" class="headerlink" title="（一）线性布局LinearLayout"></a>（一）线性布局LinearLayout</h5>
+<h3 id="一．基本理论"><a href="#一．基本理论" class="headerlink" title="一．基本理论"></a>一．基本理论</h3><h5 id="Android六大基本布局分别是："><a href="#Android六大基本布局分别是：" class="headerlink" title="Android六大基本布局分别是："></a>Android六大基本布局分别是：</h5><h5 id="线性布局LinearLayout、"><a href="#线性布局LinearLayout、" class="headerlink" title="线性布局LinearLayout、"></a>线性布局LinearLayout、</h5><h5 id="表格布局TableLayout、"><a href="#表格布局TableLayout、" class="headerlink" title="表格布局TableLayout、"></a>表格布局TableLayout、</h5><h5 id="相对布局RelativeLayout、"><a href="#相对布局RelativeLayout、" class="headerlink" title="相对布局RelativeLayout、"></a>相对布局RelativeLayout、</h5><h5 id="层布局FrameLayout、"><a href="#层布局FrameLayout、" class="headerlink" title="层布局FrameLayout、"></a>层布局FrameLayout、</h5><h5 id="绝对布局AbsoluteLayout、"><a href="#绝对布局AbsoluteLayout、" class="headerlink" title="绝对布局AbsoluteLayout、"></a>绝对布局AbsoluteLayout、</h5><h5 id="网格布局GridLayout。"><a href="#网格布局GridLayout。" class="headerlink" title="网格布局GridLayout。"></a>网格布局GridLayout。</h5><h3 id="二-各个布局的使用"><a href="#二-各个布局的使用" class="headerlink" title="二.各个布局的使用"></a>二.各个布局的使用</h3><h5 id="（一）线性布局LinearLayout"><a href="#（一）线性布局LinearLayout" class="headerlink" title="（一）线性布局LinearLayout"></a>（一）线性布局LinearLayout</h5><p>android:orientation  控制方向  属性值垂直（vertical）和水平（horizontal）,默认水平方向。</p>
+<p>android:gravity  内部控件对齐方式，常用属性值有 center、center_vertical、center_horizontal、top、bottom、left、right等。这个属性在布局组件RelativeLayout、TableLayout中也有使用，FrameLayout、AbsoluteLayout则没有这个属性。center：居中显示，这里并不是表示显示在LinearLayout的中心，当LinearLayout线性方向为垂直方向时，center表示水平居中，但是并不能垂直居中，此时等同于center_horizontal的作用；同样当线性方向为水平方向时，center表示垂直居中，等同于center_vertical。</p>
+<p>top、bottom、left、right为内部控件居顶、底、左、右布局。</p>
+<p>android:layout_gravity使用来设置自身相对于父元素的布局。</p>
+<p>andro:layout_weight:权重，用来分配当前控件在剩余空间的大小。使用权重一般要把分配该权重方向的长度设置为零，比如在水平方向分配权重，就把width设置为零。</p>
+<h5 id="二-相对布局RelativeLayout"><a href="#二-相对布局RelativeLayout" class="headerlink" title="(二) 相对布局RelativeLayout"></a>(二) 相对布局RelativeLayout</h5><p>相对布局可以让子控件相对于兄弟控件或父控件进行布局，可以设置子控件相对于兄弟控件或父控价进行上下左右对齐。相对布局就是一定要加id才能管理。</p>
+<h5 id="RelativeLayout中子控件常用属性："><a href="#RelativeLayout中子控件常用属性：" class="headerlink" title="*RelativeLayout中子控件常用属性："></a>*RelativeLayout中子控件常用属性：</h5><p>1.相对于父控件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">android:layout_alignParentTop      控件的顶部与父控件的顶部对齐;</span><br><span class="line">android:layout_alignParentBottom  控件的底部与父控件的底部对齐;</span><br><span class="line">android:layout_alignParentLeft      控件的左部与父控件的左部对齐;</span><br><span class="line">android:layout_alignParentRight     控件的右部与父控件的右部对齐;</span><br></pre></td></tr></table></figure>
+
+<p>2.相对给定id控件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">android:layout_above 控件的底部置于给定ID的控件之上;</span><br><span class="line">android:layout_below     控件的底部置于给定ID的控件之下;</span><br><span class="line">android:layout_toLeftOf    控件的右边缘与给定ID的控件左边缘对齐;</span><br><span class="line">android:layout_toRightOf  控件的左边缘与给定ID的控件右边缘对齐;</span><br><span class="line">android:layout_alignBaseline  控件的baseline与给定ID的baseline对齐;</span><br><span class="line">android:layout_alignTop        控件的顶部边缘与给定ID的顶部边缘对齐;</span><br><span class="line">android:layout_alignBottom   控件的底部边缘与给定ID的底部边缘对齐;</span><br><span class="line">android:layout_alignLeft       控件的左边缘与给定ID的左边缘对齐;</span><br><span class="line">android:layout_alignRight      控件的右边缘与给定ID的右边缘对齐;</span><br></pre></td></tr></table></figure>
+
+<p>3.居中</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">android:layout_centerHorizontal 水平居中;</span><br><span class="line">android:layout_centerVertical    垂直居中;</span><br><span class="line">android:layout_centerInParent  父控件的中央;</span><br></pre></td></tr></table></figure>
+
+<h3 id="三-层布局FrameLayout"><a href="#三-层布局FrameLayout" class="headerlink" title="三.层布局FrameLayout"></a>三.层布局FrameLayout</h3><p>层布局，从屏幕的左上角按照层次堆叠方式布局，后面的控件覆盖前面的控件。</p>
+<h3 id="四-相对布局AbsoluteLayout"><a href="#四-相对布局AbsoluteLayout" class="headerlink" title="四.相对布局AbsoluteLayout"></a>四.相对布局AbsoluteLayout</h3><p>绝对布局元素将所有的子元素通过设置android:layout_x和android:layout_y属性，将子元素的位置固定下来。layout_x用来表示横坐标，layout_y用来表示纵坐标。屏幕左上角为坐标(0,0),横向往右为正方，纵向往下为正方。实际应用中，这种布局用的比较少，因为机型比较多，屏幕大小、分辨率大部分不一样，如果用绝对布局，可能导致在有的终端上显示不全等。</p>
+<h4 id="五-表格布局TableLayout"><a href="#五-表格布局TableLayout" class="headerlink" title="五.表格布局TableLayout"></a>五.表格布局TableLayout</h4><p>表格布局，适用于多行多列的布局格式，每个TableLayout是由多个TableRow组成，一个TableRow就表示TableLayout中的每一行，这一行可以由多个子元素组成。TableLayout和TableRow都是LinearLayout线性布局的子类。</p>
+<p>TableRow的参数android:orientation属性值固定为horizontal,</p>
+<p>android:layout_width=MATCH_PARENT，</p>
+<p>android:layout_height=WRAP_CONTENT。</p>
+<p>所以，TableRow实际是一个横向的线性布局，所以子元素宽度和高度一致。</p>
+<p>*注意：在TableLayout中，单元格可以为空，但是不能跨列，意思是不能有相邻的单元格为空。</p>
+<p>TableLayout的常用属性：</p>
+<p>android：shrinkColumns:设置可收缩的列，内容过多就收缩显示到第二行</p>
+<p>android：stretchColumns:设置可伸展的列，将空白区域填充满整个列</p>
+<p>android：collapseColimns:设置要隐藏的列</p>
+<p>列的索引从0开始，shrinkColumns和stretchColumns可以同时设置。</p>
+<p>*子控件常用属性：</p>
+<p>android:layout_column:第几列</p>
+<p>android:layout_span:占据列数</p>
+<h3 id="六-网格布局GridLayout"><a href="#六-网格布局GridLayout" class="headerlink" title="六.网格布局GridLayout"></a>六.网格布局GridLayout</h3><p>①跟LinearLayout(线性布局)一样,他可以设置容器中组件的对齐方式<br>②容器中的组件可以跨多行也可以跨多列(相比TableLayout直接放组件,占一行相比较)<br>因为是android 4.0新增的,API Level 14,在这个版本以前的sdk都需要导入项目。这里不解释。</p>
+<p>常用属性:<br>排列对齐:<br>①设置组件的排列方式:  android:orientation=””   vertical(竖直,默认)或者horizontal(水平)<br>②设置组件的对齐方式:  android:layout_gravity=””  center,left,right,buttom</p>
+<p>设置布局为几行几列:<br>①设置有多少行: android:rowCount=”4”    //设置网格布局有4行<br>②设置有多少列: android:columnCount=”4”  //设置网格布局有4列</p>
+<p>设置某个组件位于几行几列<br>注:都是从0开始算的哦！<br>①组件在第几行: android:layout_row = “1”  //设置组件位于第二行<br>②组件在第几列: android:layout_column = “2”  //设置该组件位于第三列</p>
+<p>设置某个组件横跨几行几列:<br>①横跨几行: android:layout_rowSpan = “2”   //纵向横跨2行<br>②横跨几列: android:layout_columnSpan = “3”   //横向横跨2列</p>
+<p>***用法总结:<br>①GridLayout使用虚细线将布局划分为行,列和单元格,同时也支持在行,列上进行交错排列<br>②使用流程:<br>step 1:先定义组件的对其方式 android:orientation 水平或者竖直<br>step 2:设置组件所在的行或者列,记得是从0开始算的<br>step 3:设置组件横跨几行或者几列;设置完毕后,需要在设置一个填充:android:layout_gravity = “fill”</p>
+<p>***可能遇到的问题:<br>当读者将布局设置为GridLayout时,会出现 莫名其妙的报错,<br>如果代码语法逻辑没有错的话,就可能是配置文件 AndroidManifest.xml 的问题了<br>因为GridLayout是android 4.0 后才推出的,API Level 为 14<br>只需要将配置文件中的 MinSDK改成14或者以上版本 即可,保存,问题就解决了！</p>
+<h3 id="七-除上面讲过之外常用的几个布局的属性"><a href="#七-除上面讲过之外常用的几个布局的属性" class="headerlink" title="七.除上面讲过之外常用的几个布局的属性"></a>七.除上面讲过之外常用的几个布局的属性</h3><h4 id="1-layout-margin"><a href="#1-layout-margin" class="headerlink" title="(1)layout_margin"></a>(1)layout_margin</h4><p>用于设置控件边缘相对于父控件的边距<br>android:layout_marginLeft<br>android:layout_marginRight<br>android:layout_marginTop<br>android:layout_marginBottom</p>
+<h4 id="2-layout-padding"><a href="#2-layout-padding" class="headerlink" title="(2) layout_padding"></a>(2) layout_padding</h4><p>用于设置控件内容相对于控件边缘的边距<br>android:layout_paddingLeft<br>android:layout_paddingRight<br>android:layout_paddingTop<br>android:layout_paddingBottom</p>
+<h4 id="3-layout-width-height"><a href="#3-layout-width-height" class="headerlink" title="(3) layout_width/height"></a>(3) layout_width/height</h4><p>用于设置控件的高度和宽度<br>wrap_content 内容包裹，表示这个控件的里面文字大小填充<br>fill_parent 跟随父窗口<br>match_parent</p>
+<h4 id="4-gravity"><a href="#4-gravity" class="headerlink" title="(4) gravity"></a>(4) gravity</h4><p>用于设置View组件里面内容的对齐方式<br>top bottom left  right center等</p>
+<h4 id="5-android-layout-gravity"><a href="#5-android-layout-gravity" class="headerlink" title="(5) android:layout_gravity"></a>(5) android:layout_gravity</h4><p>用于设置Container组件的对齐方式<br>android:layout_alignTop 本元素的上边缘和某元素的的上边缘对齐<br>android:layout_alignLeft 本元素的左边缘和某元素的的左边缘对齐<br>android:layout_alignBottom 本元素的下边缘和某元素的的下边缘对齐<br>android:layout_alignRight 本元素的右边缘和某元素的的右边缘对齐</p>
+
       </div>
     </div>
   </div>
@@ -67,12 +110,12 @@
 <div class="lx-navigation">
 	<div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer_1.jpg)">
 		<div class="overlay"></div>
-		<a class="copy" href="/2019/10/31/“Navicat如何导入导出sql文件/">
+		<a class="copy" href="#">
 			<div class="display-t">
 				<div class="display-tc">
 					<div>
 						<span>Next</span>
-						<h3>Navicat如何导入导出sql文件</h3>
+						<h3>没有更新的文章</h3>
 					</div>
 				</div>
 			</div>
