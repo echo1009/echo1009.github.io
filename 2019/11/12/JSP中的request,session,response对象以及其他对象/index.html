@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content>
+  <meta name="description" content>
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'hexo-theme-lx-master',
+    version: '1.4.5',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: '-'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "endless-river",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300|Noto+Serif+SC&amp;display=swap">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+</head>
+<body>
+<div class="single">
+<div id="page">
+<div id="lx-aside" style="background-image: url(/images/page-cover.jpg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="/images/person_1.jpg"></a></div>
+    <span>2019-11-12</span>
+    <h2></h2>
+    
+    </div>
+</div>
+</div>
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <h2 id="JSP中的request-session-response对象以及其他对象"><a href="#JSP中的request-session-response对象以及其他对象" class="headerlink" title="JSP中的request,session,response对象以及其他对象"></a>JSP中的request,session,response对象以及其他对象</h2><h5 id="1-pageContext对象："><a href="#1-pageContext对象：" class="headerlink" title="1)pageContext对象："></a><font color="red">1)pageContext对象：</font></h5><p>​     <font color="green">每一个jsp页面对应着一个pageContext。一般地，在实际应用中，主要是使用它来存取属性。</font></p>
+<p>​     另外，pageContext对象能够存取其他隐含对象。</p>
+<pre><code>###### a.pageContext对象存取其他隐含对象属性的方法，此时需要指定范围的参数。</code></pre><p>​      <font color="red">Object getAttribute(String name, int scope)</font></p>
+<p>​      <font color="red">Enumeration getAttributeNamesInScope(int scope)</font></p>
+<p>​      <font color="red">void removeAttribute(String name, int scope)</font></p>
+<p>​     <font color="red"> void setAttribute(String name, Object value, int scope)</font></p>
+<p>​     其中，范围参数有四个，分别代表四种范围：</p>
+<p>​      PAGE_SCOPE、REQUEST_SCOPE、SESSION_SCOPE、APPLICATION_SCOPE</p>
+<pre><code>###### b.PageContext对象取得其他隐含对象的方法</code></pre><p>​      Exception getException()           回传目前网页的异常，不过此网页要为error page，</p>
+<p>​      JspWriter getOut()                 回传目前网页的输出流，例如：out</p>
+<p>​      Object getPage()                   回传目前网页的Servlet 实体(instance)，例如：page</p>
+<p>​      ServletRequest getRequest()        回传目前网页的请求，例如：request</p>
+<p>​      ServletResponse getResponse()      回传目前网页的响应，例如：response</p>
+<p>​      ServletConfig getServletConfig()   回传目前此网页的ServletConfig 对象，例如：config</p>
+<p>​      ServletContext getServletContext() 回传目前此网页的执行环境(context)，例如：application</p>
+<p>​      HttpSession getSession()           回传和目前网页有联系的会话(session)，例如：session</p>
+<pre><code>###### c.PageContext对象提供取得属性的方法</code></pre><p>​      Object getAttribute(String name, int scope)    回传name 属性(范围为scope；类型为Object) </p>
+<p>​      Enumeration getAttributeNamesInScope(int scope)    </p>
+<p>​                                       回传所有属性范围为scope 的属性名称，回传类型为Enumeration</p>
+<p>​      int getAttributesScope(String name)回传属性名称为name 的属性范围</p>
+<p>​      void removeAttribute(String name)  移除属性名称为name 的属性对象</p>
+<p>​      void removeAttribute(String name, int scope)   移除属性名称为name，范围为scope 的属性对象</p>
+<p>​      void setAttribute(String name, Object value, int scope)        </p>
+<p>​                                       指定属性对象的名称为name、值为value、范围为scope</p>
+<p>​      Object findAttribute(String name)  寻找在所有范围中属性名称为name 的属性对象</p>
+<h6 id="2-request-对象"><a href="#2-request-对象" class="headerlink" title="2)request 对象"></a><font color="red">2)request 对象</font></h6><p>​     request 对象包含所有请求的信息，</p>
+<p>​     如：请求的来源、标头、cookies和请求相关的参数值等等。</p>
+<p>​     request 对象实现javax.servlet.http.HttpServletRequest接口的，</p>
+<p>​     所提供的方法可以将它分为四大类：</p>
+<pre><code>###### &lt;font color=&quot;red&quot;&gt;(1)储存和取得属性方法;&lt;/font&gt;</code></pre><p>​      <font color="green">void setAttribute(String name, Object value)      设定name属性的值为value</font></p>
+<p>​      <font color="green">Enumeration getAttributeNamesInScope(int scope)   取得所有scope 范围的属性</font></p>
+<p>​      <font color="green">Object getAttribute(String name)   取得name 属性的值</font></p>
+<p>​      <font color="green">void removeAttribute(String name)  移除name 属性的值</font></p>
+<pre><code>###### &lt;font color=&quot;red&quot;&gt;(2)取得请求参数的方法&lt;/font&gt;</code></pre><p>​      <font color="green">String getParameter(String name)   取得name 的参数值</font></p>
+<p>​      <font color="green">Enumeration getParameterNames()    取得所有的参数名称</font></p>
+<p>​      <font color="green">String [] getParameterValues(String name)    取得所有name 的参数值</font></p>
+<p> <font color="green">Map getParameterMap()              取得一个要求参数的Map</font></p>
+<pre><code>##### &lt;font color=&quot;red&quot;&gt;(3)能够取得请求HTTP 标头的方法&lt;/font&gt;</code></pre><p>​      <font color="orage">String getHeader(String name)      取得name 的标头</font></p>
+<p>​      <font color="orage">Enumeration getHeaderNames()       取得所有的标头名称</font></p>
+<p>​      <font color="orage">Enumeration getHeaders(String name) 取得所有name 的标头</font></p>
+<p>​      <font color="orage">int getIntHeader(String name)      取得整数类型name 的标头</font></p>
+<p>​      <font color="orage">long getDateHeader(String name)    取得日期类型name 的标头</font></p>
+<p>​     <font color="orage"> Cookie [] getCookies()             取得与请求有关的cookies</font></p>
+<pre><code>###### &lt;font color=&quot;red&quot;&gt;(4)其他的方法&lt;/font&gt;</code></pre><p>​      <font color="orage">String getContextPath()            取得Context 路径(即站台名称)</font></p>
+<p>​       <font color="orage">String getMethod()                 取得HTTP 的方法(GET、POST)</font></p>
+<p>​       <font color="orage">String getProtocol()               取得使用的协议 (HTTP/1.1、HTTP/1.0 )</font></p>
+<p>​       <font color="orage">String getQueryString()            取得请求的参数字符串，不过，HTTP的方法必须为GET</font></p>
+<p>​      <font color="orage"> String getRequestedSessionId()     取得用户端的Session ID</font></p>
+<p>​      <font color="orage"> String getRequestURI()             取得请求的URL，但是不包括请求的参数字符串</font></p>
+<p>​      <font color="orage"> String getRemoteAddr()             取得用户的IP 地址</font></p>
+<p>​       <font color="orage">String getRemoteHost()             取得用户的主机名称</font></p>
+<p>​      <font color="orage"> int getRemotePort()                取得用户的主机端口</font></p>
+<p>​       <font color="orage">String getRemoteUser()             取得用户的名称</font></p>
+<p>​       <font color="orage">void getCharacterEncoding(String encoding)    设定编码格式，用来解决窗体传递中文的问题</font></p>
+<pre><code>#### 3)session 对象</code></pre><p>​     <font color="orage">session对象表示目前个别用户的会话(session)状况。</font></p>
+<p>​    <font color="orage"> session对象实现javax.servlet.http.HttpSession接口，HttpSession接口所提供的方法</font></p>
+<p>​      <font color="orage">long getCreationTime()             取得session产生的时间，单位是毫秒</font></p>
+<p>​      <font color="orage">String getId()                     取得session 的ID</font></p>
+<p>​      <font color="orage">long getLastAccessedTime()         取得用户最后通过这个session送出请求的时间</font></p>
+<p>​      <font color="orage">long getMaxInactiveInterval()      取得最大session不活动的时间，若超过这时间，session 将会失效</font></p>
+<p>​      <font color="orage">void invalidate()                  取消session 对象，并将对象存放的内容完全抛弃</font></p>
+<p>​     <font color="orage"> boolean isNew()                    判断session 是否为”新”的会话</font></p>
+<p>​      <font color="orage">void setMaxInactiveInterval(int interval)   </font></p>
+<p>​                                       <font color="orage">设定最大session不活动的时间，若超过这时间，session 将会失效</font></p>
+<pre><code>#### 4)application对象</code></pre><p>​     application对象最常被使用在存取环境的信息。</p>
+<p>​     因为环境的信息通常都储存在ServletContext中，所以常利用application对象来存取ServletContext中的信息。</p>
+<p>​     application 对象实现javax.servlet.ServletContext 接口，ServletContext接口容器所提供的方法</p>
+<p>​      int getMajorVersion()              取得Container主要的Servlet API版本</p>
+<p>​      int getMinorVersion()              取得Container次要的Servlet API 版本</p>
+<p>​      String getServerInfo()             取得Container的名称和版本</p>
+<p>​      String getMimeType(String file)    取得指定文件的MIME 类型</p>
+<p>​      ServletContext getContext(String uripath)        取得指定Local URL的Application context</p>
+<p>​      String getRealPath(String path)    取得本地端path的绝对路径</p>
+<p>​      void log(String message)           将信息写入log文件中</p>
+<p>​      void log(String message, Throwable throwable)    将stack trace 所产生的异常信息写入log文件中</p>
+<p> 3.其他对象：</p>
+<pre><code>#### 1)page 对象</code></pre><p>​     page对象代表JSP本身，更准确地说page对象是当前页面转换后的Servlet类的实例。</p>
+<p>​     从转换后的Servlet类的代码中，可以看到这种关系： Object page = this;</p>
+<p>​     在JSP页面中，很少使用page对象。</p>
+<pre><code>#### 2)response 对象</code></pre><p>​     response 对象主要将JSP 处理数据后的结果传回到客户端。</p>
+<p>​     response 对象是实现javax.servlet.http.HttpServletResponse 接口。response对象所提供的方法。</p>
+<p>​    a.设定表头的方法</p>
+<p>​      void addCookie(Cookie cookie)                新增cookie</p>
+<p>​      void addDateHeader(String name, long date)   新增long类型的值到name标头</p>
+<p>​      void addHeader(String name, String value)    新增String类型的值到name标头</p>
+<p>​      void addIntHeader(String name, int value)    新增int类型的值到name标头</p>
+<p>​      void setDateHeader(String name, long date)   指定long类型的值到name标头</p>
+<p>​      void setHeader(String name, String value)    指定String类型的值到name标头</p>
+<p>​      void setIntHeader(String name, int value)    指定int类型的值到name标头</p>
+<p>​    b.设定响应状态码的方法</p>
+<p>​      void sendError(int sc)                       传送状态码(status code)</p>
+<p>​      void sendError(int sc, String msg)           传送状态码和错误信息</p>
+<p>​      void setStatus(int sc)                       设定状态码</p>
+<p>​    c.用来URL 重写(rewriting)的方法    </p>
+<p>​      String encodeRedirectURL(String url)         对使用sendRedirect()方法的URL予以编码</p>
+<pre><code>#### 3)out 对象</code></pre><p>​     out对象的类型是javax.servlet.jsp.JspWriter，该类从java.io.Writer类派生，以字符流的形式输出数据。</p>
+<p>​     out对象实际上是PrintWriter对象的带缓冲的版本(在out对象内部使用PrintWriter对象来输出数据)，</p>
+<p>​     可以通过page指令的buffer属性来调整缓冲区的大小，默认的缓冲区是8kb。</p>
+<p>​     out 对象能把结果输出到网页上。</p>
+<p>​     out主要是用来控制管理输出的缓冲区(buffer)和输出流(output stream)。</p>
+<p>​      void clear( )               清除输出缓冲区的内容</p>
+<p>​      void clearBuffer( )         清除输出缓冲区的内容</p>
+<p>​      void close( )               关闭输出流，清除所有的内容</p>
+<p>​      int getBufferSize( )        取得目前缓冲区的大小(KB)</p>
+<p>​      int getRemaining( )         取得目前使用后还剩下的缓冲区大小(KB)</p>
+<p>​      boolean isAutoFlush( )      回传true表示缓冲区满时会自动清除；false表示不会自动清除并且产生异常处理</p>
+<pre><code>#### 4)exception对象</code></pre><p>​     若要使用exception 对象时，必须在page 指令中设定：&lt;%@ page isErrorPage=”true” %&gt;才能使用。</p>
+<p>​     exception提供的三个方法：</p>
+<p>​      getMessage() </p>
+<p>​      getLocalizedMessage() </p>
+<p>​      printStackTrace(new java.io.PrintWriter(out)) </p>
+<p>​    5)config 对象</p>
+<p>​     config 对象里存放着一些Servlet 初始的数据结构。</p>
+<p>​     config 对象实现于javax.servlet.ServletConfig 接口，它共有下列四种方法：</p>
+<p>​      public String getInitParameter(name)</p>
+<p>​      public java.util.Enumeration getInitParameterNames( ) </p>
+<p>​      public ServletContext getServletContext() </p>
+<p>​      public Sring getServletName()</p>
+<p>例子：</p>
+<p>1.范围对象比较</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;% pageContext 或request 或session 或application.setAttribute(<span class="string">"name"</span>, <span class="string">"maxwell"</span>);</span><br><span class="line"></span><br><span class="line">   pageContext.setAttribute(<span class="string">"sex"</span>, <span class="string">"m"</span>);</span><br><span class="line"></span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>2.输出对象out</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%out.println(<span class="string">"Hello JSP!"</span>);%&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%System.out.println(<span class="string">"Hello JSP!"</span>);%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>getBufferSize() //tomcat default:12k</p>
+<p>getRemaining()</p>
+<p>flush()</p>
+<p>clearBuffer()</p>
+<p>3.request对象</p>
+<p>request:</p>
+<p>getProtocol()</p>
+<p>getMethod()</p>
+<p>getHeader(“User-Agent”)</p>
+<p>getCookies()</p>
+<p>getRequestURI()</p>
+<p>getRequestURL()</p>
+<p>getContextPath()</p>
+<p>getServletPath()</p>
+<p>getPathInfo()</p>
+<p>getQueryString()</p>
+<p>isRequestedSessionIdFromCookie()</p>
+<p>isRequestedSessionIdFromURL()</p>
+<p>isRequestedSessionIdValid()</p>
+<p>getLocalPort(),getRemotePort()</p>
+<p>getRequestDispatcher(),setCharacterEncoding(),getInputStream()</p>
+<p>4.session对象</p>
+<p>session:</p>
+<p>getId()</p>
+<p>isNew()</p>
+<p>invalidate()</p>
+<p>setMaxInactiveInterval(10)</p>
+<p>5.响应对象</p>
+<p>response:</p>
+<p>sendRedirect(“third.jsp”)</p>
+<p>sendError(404, “400 Error!”)</p>
+<p>6.应用对象</p>
+<p>application:</p>
+<p>log(“some body visit our website…”);</p>
+<p>getMajorVersion()</p>
+<p>getMinorVersion()</p>
+<p>getServerInfo()</p>
+<p>getRequestDispatcher(),getResourceAsStream(),getInitParameter()</p>
+<p>pageContext:</p>
+<p>getAttribute(“name”)</p>
+<p>config:</p>
+<p>getInitParameter(“classNo”)</p>
+<p>getServletName()</p>
+<p>page:</p>
+<p>getClass()</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer_1.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2019/11/12/jdbc连接数据库的步骤/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>JDBC连接数据库的步骤</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer_2.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2019/11/12/JSP总结中/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3></h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.blleng.cn" target="_blank">Lx</a><br>
+  </div>
+</footer>
+</div>
+
+<button class="menu-trigger"></button>
+<div class="menu">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/person_1.jpg" alt="John Doe"></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>John Doe</p>
+          <span class="tagline">Hello, World!</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>页面</span>
+        <ul>
+          <li><a href="/guestbook">留言</a></li>
+        <li><a href="/about">关于</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>友链</span>
+        <ul>
+          <li> <a href="https://lx.blleng.cn" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.stellar.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

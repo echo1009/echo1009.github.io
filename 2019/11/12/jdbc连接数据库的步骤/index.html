@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>JDBC连接数据库的步骤 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content>
+  <meta name="description" content>
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'hexo-theme-lx-master',
+    version: '1.4.5',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: '-'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "endless-river",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300|Noto+Serif+SC&amp;display=swap">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+</head>
+<body>
+<div class="single">
+<div id="page">
+<div id="lx-aside" style="background-image: url(/images/page-cover.jpg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="/images/person_1.jpg"></a></div>
+    <span>2019-11-12</span>
+    <h2>JDBC连接数据库的步骤</h2>
+    
+    </div>
+</div>
+</div>
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <h4 id="1-jar包的引入"><a href="#1-jar包的引入" class="headerlink" title="1.jar包的引入"></a>1.jar包的引入</h4><p>(1)首先要百度下载一个jar包</p>
+<p>(2)在lib中导入jar包</p>
+<p>(3)在MySQL的jar包上右键选择 build path —&gt; add to build path</p>
+<h4 id="2-注册驱动"><a href="#2-注册驱动" class="headerlink" title="2.注册驱动"></a>2.注册驱动</h4><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>显示的加载到JVM中</strong></p>
+<h4 id="3-获取连接"><a href="#3-获取连接" class="headerlink" title="3.获取连接"></a>3.获取连接</h4><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String url = <span class="string">"jdbc:mysql://127.0.0.1:3306/Schooldb"</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String userName = <span class="string">"root"</span>;<span class="comment">//MySQL配置时的用户名</span></span><br><span class="line"></span><br><span class="line">String password = <span class="string">"111111"</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-连接数据库"><a href="#4-连接数据库" class="headerlink" title="4.连接数据库"></a>4.连接数据库</h4><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connection conn = DriverManager.getConnection(url, userName, password);</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-执行SQL语句"><a href="#5-执行SQL语句" class="headerlink" title="5.执行SQL语句"></a>5.执行SQL语句</h4><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Statement statement = conn.createStatement();</span><br><span class="line"></span><br><span class="line">String sql = <span class="string">"select * from StudentInfo"</span>;</span><br><span class="line"></span><br><span class="line">ResultSet rs = statement.executeQuery(sql);</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-遍历结果集"><a href="#6-遍历结果集" class="headerlink" title="6.遍历结果集"></a>6.遍历结果集</h4><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (rs.next()) &#123;</span><br><span class="line">    name = rs.getString(<span class="string">"StudentName"</span>);</span><br><span class="line">    age = rs.getString(<span class="string">"Age"</span>);</span><br><span class="line">    out.println(name + <span class="string">"\t"</span> + age);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-关闭对象"><a href="#7-关闭对象" class="headerlink" title="7.关闭对象"></a>7.关闭对象</h4><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rs.close();</span><br><span class="line">conn.close();</span><br></pre></td></tr></table></figure>
+
+<h4 id="具体代码如下："><a href="#具体代码如下：" class="headerlink" title="具体代码如下："></a>具体代码如下：</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=utf-8"</span>%&gt;</span><br><span class="line">&lt;%@ page <span class="keyword">import</span>=<span class="string">"java.sql.*"</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">"ISO-8859-1"</span>&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;%</span><br><span class="line">		String driver = <span class="string">"com.mysql.jdbc.Driver"</span>;</span><br><span class="line">    </span><br><span class="line">		String url = <span class="string">"jdbc:mysql://127.0.0.1:3306/Schooldb"</span>;<span class="comment">//url指向要访问的数据库名Schooldb(是你自己的数据库名)</span></span><br><span class="line">    </span><br><span class="line">		String userName = <span class="string">"root"</span>;<span class="comment">//MySQL配置时的用户名</span></span><br><span class="line">    </span><br><span class="line">		String password = <span class="string">"111111"</span>;<span class="comment">//Java连接MySQL配置时的密码</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">			<span class="comment">//1 加载驱动程序</span></span><br><span class="line"></span><br><span class="line">			Class.forName(driver);</span><br><span class="line"></span><br><span class="line">			<span class="comment">//2 连接数据库</span></span><br><span class="line"></span><br><span class="line">			Connection conn = DriverManager.getConnection(url, userName, password);</span><br><span class="line"></span><br><span class="line">			<span class="comment">//3 用来执行SQL语句</span></span><br><span class="line"></span><br><span class="line">			Statement statement = conn.createStatement();</span><br><span class="line"></span><br><span class="line">			<span class="comment">//要执行的SQL语句 StudentInfo（自己要查询的数据表）</span></span><br><span class="line"></span><br><span class="line">			String sql = <span class="string">"select * from StudentInfo"</span>;</span><br><span class="line"></span><br><span class="line">			ResultSet rs = statement.executeQuery(sql);</span><br><span class="line">            </span><br><span class="line">			String name = <span class="keyword">null</span>;</span><br><span class="line">			String age = <span class="keyword">null</span>;</span><br><span class="line">			<span class="keyword">while</span> (rs.next()) &#123;</span><br><span class="line">                <span class="comment">//StudentName、Age是自己数据表中的数据</span></span><br><span class="line">				name = rs.getString(<span class="string">"StudentName"</span>);</span><br><span class="line">				age = rs.getString(<span class="string">"Age"</span>);</span><br><span class="line">				out.println(name + <span class="string">"\t"</span> + age);</span><br><span class="line">			&#125;</span><br><span class="line">			rs.close();</span><br><span class="line">			conn.close();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">			System.out.println(<span class="string">"Sorry,can`t find the Driver!"</span>);</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	%&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：数据库建立的表中要有数据；</strong></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer_1.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="#">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>没有更新的文章</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer_2.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2019/11/12/JSP中的request,session,response对象以及其他对象/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3></h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.blleng.cn" target="_blank">Lx</a><br>
+  </div>
+</footer>
+</div>
+
+<button class="menu-trigger"></button>
+<div class="menu">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/person_1.jpg" alt="John Doe"></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>John Doe</p>
+          <span class="tagline">Hello, World!</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>页面</span>
+        <ul>
+          <li><a href="/guestbook">留言</a></li>
+        <li><a href="/about">关于</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>友链</span>
+        <ul>
+          <li> <a href="https://lx.blleng.cn" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.stellar.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
