@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content>
+  <meta name="description" content>
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'hexo-theme-lx-master',
+    version: '1.4.5',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: '-'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "endless-river",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300|Noto+Serif+SC&amp;display=swap">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+</head>
+<body>
+<div class="single">
+<div id="page">
+<div id="lx-aside" style="background-image: url(/images/page-cover.jpg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="/images/person_1.jpg"></a></div>
+    <span>2019-11-12</span>
+    <h2></h2>
+    
+    </div>
+</div>
+</div>
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <h1 id="JSP总结上"><a href="#JSP总结上" class="headerlink" title="JSP总结上"></a>JSP总结上</h1><h4 id="JSP-定义："><a href="#JSP-定义：" class="headerlink" title="JSP 定义："></a>JSP 定义：</h4><p>​    1)Java Server Page, Java EE 组件，本质上是 Servlet。</p>
+<p>​    2)运行在 Web Container.接收 Http Request,生成 Http Response(默认协议是 Http 请求和响应) </p>
+<p>​    3)JSP 使得我们能够分离页面的静态 HTML 和动态部分——我们需要的技术。</p>
+<p>​    4)使页面可以混和html代码、Java代码以及JSP标签；允许访问组件</p>
+<h5 id="Servlet的缺陷-JSP出现的原因-："><a href="#Servlet的缺陷-JSP出现的原因-：" class="headerlink" title="Servlet的缺陷(JSP出现的原因)："></a>Servlet的缺陷(JSP出现的原因)：</h5><p>​    1)写静态页面必须部署后才能看到效果，很难控制页面的外观。</p>
+<p>​    2)从技术角度来说Servlet是Java代码和HTML静态代码的混合代码。</p>
+<p>​    3)从市场竞争角度来说，微软推出了ASP产品。</p>
+<h4 id="JSP的改进："><a href="#JSP的改进：" class="headerlink" title="JSP的改进："></a>JSP的改进：</h4><p>​    1)JSP是标签式的文本文件(Servlet是Java文件) </p>
+<p>​    2)JSP不需要编译(其实是由服务器监测JSP文件的变化，再将其翻译成 Servlet 代码) </p>
+<p>​      服务器对其进行编译并在第一次请求时创建一个Servlet实例。所以，第一次访问JSP页面时会后延迟</p>
+<p>​    3)JSP不用写配置文件</p>
+<p>​    4)JSP以静态代码为主，Java代码为辅。Servlet反之。</p>
+<p>​    5)是J2EE蓝图的一部分(Servlet、JSP以及EJB是J2EE的三大组件) </p>
+<p>​    JSP从本质上来说内核还是Servlet，但与Servlet不是替代关系而是一种互补的关系。</p>
+<p>​    JSP适合于写显示层的动态页面，而Servlet则适合写控制层的业务控制(页面转发)。</p>
+<p>​    JSP往纯标签方向发展，Servlet往纯代码方向发展，他们以Servlet内核(请求响应式的工作方式)往两个方向发展。</p>
+<h4 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h4><p>一、JSP的声明(statement) </p>
+<p>   用来定义在产生的类文件中的类的属性和方法(成员变量)。可声明类(即是内部类)。</p>
+<p>   由于servlet是工作在多线程环境下，所以尽量不要在service方法体外声明成员变量。</p>
+<p>   &lt;%!…..%&gt;  //声明时要加”!”，属于类成员，最先加载，可写于任何位置；不加则是脚本的局部变量，必须调用前写。</p>
+<p>   如：  &lt;%!String hello=”Hello, World!”;%&gt;  //变量的声明</p>
+<p>​        &lt;%=hello%&gt;   //变量的调用</p>
+<p>​        &lt;%! private int counter=0;  public int count(){ return ++counter;} %&gt; //函数的声明</p>
+<p>​        </p><h1>&lt;%=count()%&gt;</h1> //函数的调用<p></p>
+<h4 id="声明规则："><a href="#声明规则：" class="headerlink" title="声明规则："></a>声明规则：</h4><p>​    1) JSP中声明的变量和方法对应于Servlet中的实例方法和实例变量。这些将被同时请求该页面的所有用户所共享;</p>
+<p>​    2) 在使用变量或方法前须先定义(不是说声明变量的位置在页面中要处于使用变量的前面，而是指变量不声明不能使用);</p>
+<p>​    3) 声明的变量或方法的作用域为当前页面或包含的页面;</p>
+<p>​    4) 语句间以分号分隔。</p>
+<h3 id="二、JSP代码段-Scriptlet"><a href="#二、JSP代码段-Scriptlet" class="headerlink" title="二、JSP代码段(Scriptlet)"></a>二、JSP代码段(Scriptlet)</h3><p>​      &lt;% java代码 %&gt; </p>
+<p>   是一段可以在处理请求时间执行的Java代码。可以产生输出，也可以是一些流程控制语句。</p>
+<p>   在代码段中定义的变量为service方法中的局部变量。</p>
+<h5 id="1-jspService-中的局部代码："><a href="#1-jspService-中的局部代码：" class="headerlink" title="1._jspService()中的局部代码："></a>1._jspService()中的局部代码：</h5><p>​      &lt;%  System.out.println(“Hi,I like JSP.”); %&gt;   //在控制台打印出，网页上没显示</p>
+<p>​      &lt;%  out.println(“Hi,I like JSP.”); %&gt;          //打印在网页上</p>
+<p>​      &lt;%  Connection conn=DriverManager.getConnection();  Statement st=conn.createStatement();</p>
+<p>​        String sql=”select * from users”;               ResultSet rs=st.executeQuery(sql);</p>
+<p>​         //……</p>
+<p>​       %&gt;</p>
+<p>​    问：能否在JSP脚本里定义方法？</p>
+<p>​    答：不能！ //脚本相当于方法，不能在方法里定义方法</p>
+<p>​       &lt;%!public void helloworld(){}%&gt;  //可以声明方法</p>
+<p>​       &lt;% public void helloworld(){}%&gt;  //编译出错；脚本不能定义方法</p>
+<h5 id="2-比较"><a href="#2-比较" class="headerlink" title="2.比较:"></a>2.比较:</h5><p>​        &lt;%! int i=100;%&gt;     //成员变量</p>
+<p>​        &lt;%  int i=101;%&gt;     //_jspService()方法中的局部变量</p>
+<p>​        &lt;%=i%&gt;  //同一文件里，局部变量优先</p>
+<h5 id="3-脚本小程序规则："><a href="#3-脚本小程序规则：" class="headerlink" title="3.脚本小程序规则："></a>3.脚本小程序规则：</h5><p>​     1) 你使用的脚本语言决定了脚本小程序的规则;</p>
+<p>​     2) 语句间以分号分隔;</p>
+<p>​     3) 可以使用默认的对象、import进的类、declaration声明的方法和对象以及useBean tag中声明的对象。</p>
+<h3 id="三、JSP表达式-expression"><a href="#三、JSP表达式-expression" class="headerlink" title="三、JSP表达式(expression)"></a>三、JSP表达式(expression)</h3><p>​       &lt;%=……%&gt;   // “=”号</p>
+<p>   在JSP请求处理阶段计算他的值，表达式生成的代码是Service方法中的一个代码片断。</p>
+<p>   JSP对于声明的处理：1、计算表达式的值</p>
+<p>​                   2、将值转换成String</p>
+<p>​                   3、用out.println发送标签；把数据输出至页面的当前位置</p>
+<p>​      &lt;%=”Hello,JSP world!”%&gt;     //out.println(“Hello,JSP world”);</p>
+<p>​      &lt;%=name%&gt;                   //&lt;%!String name=”GiGi”;%&gt; out.println(name);</p>
+<p>​      &lt;%=new java.util.Date()%&gt;   //out.println(new java.util.Date());</p>
+<p>   表达式规则： </p>
+<p>​     1) 你使用的脚本语言决定了脚本小程序的规则;</p>
+<p>​     2) 执行的顺序为从左到右;</p>
+<p>​     3) 分号不能用于表达式。</p>
+<h3 id="四、JSP指令-direction"><a href="#四、JSP指令-direction" class="headerlink" title="四、JSP指令(direction)"></a>四、JSP指令(direction)</h3><p>   指令用于从JSP发送信息到容器上。用来设置全局变量，声明类，要实现的方法和输出内容等。</p>
+<p>   指令在JSP整个文件内有效。它为翻译阶段提供了全局信息。</p>
+<p>​       &lt;%@……%&gt;  // “@”符号</p>
+<p>   指令包括：page、include、taglib</p>
+<h5 id="1-page指令"><a href="#1-page指令" class="headerlink" title="1.page指令"></a>1.page指令</h5><p>​    </p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>、session、errorPage、isThreadSafe</span><br></pre></td></tr></table></figure>
+
+<p>​     页面的语言、内容类型、字符集、页面编码</p>
+<p>​        </p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%<span class="meta">@page</span> language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=gbk"</span> pageEncoding=<span class="string">"gbk"</span>%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>​        language：java唯一值，表示脚本中使用的编程语言</p>
+<p>​        contentType：设置了内容的类型和静态页面的编码 (告诉浏览器以什么编码显示) </p>
+<p>​        pageEncoding：页面本身的编码格式 (写页面时用的编码格式) </p>
+<p>​        上面的代码等价于servlet里： response.setContentType(“text/html; charset=gbk”);</p>
+<p>​     import：导入其他的包和类； 其中，JSP默认导入的包是java.lang.*</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%<span class="meta">@page</span> <span class="keyword">import</span>=<span class="string">"java.util.Date"</span>%&gt; <span class="comment">//具体的包和类</span></span><br></pre></td></tr></table></figure>
+
+<p>​      </p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%<span class="meta">@page</span> <span class="keyword">import</span>=<span class="string">"java.sql.*"</span>%&gt;     <span class="comment">//包下的所有类</span></span><br></pre></td></tr></table></figure>
+
+<p>​      </p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%<span class="meta">@page</span> <span class="keyword">import</span>=<span class="string">"java.util.*, java.io.*, java.net.*"</span>%&gt; <span class="comment">//连写，逗号分隔</span></span><br></pre></td></tr></table></figure>
+
+<p>​     Session：指示当前的jsp是否参与会话 (默认为true； 参与会话) </p>
+<p>​        通过指令使当前页面与session不可会话：    &lt;%@page session=”false”%&gt; </p>
+<p>​        session=”true”时，可用内建对象session直接访问会话，例如：</p>
+<p>​        </p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;%  session.setAttribute(<span class="string">"username"</span>,<span class="string">"maxwell"</span>);</span><br><span class="line"></span><br><span class="line">​            String name = (String)session.getAttribute(<span class="string">"username"</span>); %&gt;</span><br><span class="line"></span><br><span class="line">​        &lt;%=name%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>​     errorPage：</p>
+<p>​        isErrorPage：Jsp页面中出现异常的处理方式</p>
+<p>​        对于有可能出现异常的页面： </p>
+<p>​            &lt;%@page errorPage=”error.jsp”%&gt; //异常时会跳转到处理异常的页面；这页面自己写</p>
+<p>​            在有可能异常的地方打印原因：  throw new Exception(“数据库连接出错”);</p>
+<p>​        对于处理异常的页面(error.jsp)里：</p>
+<p>​           </p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &lt;%<span class="meta">@page</span> isErrorPage=<span class="string">"true"</span>%&gt;，其中使用&lt;%=exception.getMessage() %&gt;把异常信息打印出来</span><br><span class="line"></span><br><span class="line">​     isThreadSafe——此属性已经不再使用(已废弃)</span><br></pre></td></tr></table></figure>
+
+<p>​        当前Jsp页面是否线程安全    default—&gt;true</p>
+<p>​      </p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%<span class="meta">@page</span> isThreadSafe=<span class="string">"true"</span>%&gt;  <span class="comment">//普通的Servlet,可以并发处理用户请求</span></span><br></pre></td></tr></table></figure>
+
+<p>​       </p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%<span class="meta">@page</span> isThreadSafe=<span class="string">"false"</span>%&gt; <span class="comment">//相当于Servlet实现了SingleThreadModel</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2-include指令"><a href="#2-include指令" class="headerlink" title="2.include指令"></a>2.include指令</h5><p>​        把目标页面的内容包含到当前页面,产生页面叠加以后的输出效果 //相当于将两个页面合并；编译时就包含进来</p>
+<p>​        &lt;%@include file=”foot.jsp”%&gt; //可插入任意位置</p>
+<h5 id="3-taglib指令"><a href="#3-taglib指令" class="headerlink" title="3.taglib指令"></a>3.taglib指令</h5><p>​        留在JSTL里讲解。</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer_1.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2019/11/12/JSP总结下/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3></h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer_2.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2019/11/03/web前端总结（三）/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>web前端总结（三）</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.blleng.cn" target="_blank">Lx</a><br>
+  </div>
+</footer>
+</div>
+
+<button class="menu-trigger"></button>
+<div class="menu">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/person_1.jpg" alt="John Doe"></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>John Doe</p>
+          <span class="tagline">Hello, World!</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>页面</span>
+        <ul>
+          <li><a href="/guestbook">留言</a></li>
+        <li><a href="/about">关于</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>友链</span>
+        <ul>
+          <li> <a href="https://lx.blleng.cn" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.stellar.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
