@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>JSP实现简单的用户登录和注册 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content>
+  <meta name="description" content>
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'hexo-theme-lx-master',
+    version: '1.4.5',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: '-'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "endless-river",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300|Noto+Serif+SC&amp;display=swap">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+</head>
+<body>
+<div class="single">
+<div id="page">
+<div id="lx-aside" style="background-image: url(/images/page-cover.jpg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="/images/person_1.jpg"></a></div>
+    <span>2019-10-30</span>
+    <h2>JSP实现简单的用户登录和注册</h2>
+    
+    </div>
+</div>
+</div>
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <p>实验环境：Tomcat 9.0，MySQL 8.0，JDBC 8.0;<br>实验方法，利用连接池连接MySQL进行操作<br>首先创建一个Dynamic Web Project</p>
+<h5 id="1-连接池的创建"><a href="#1-连接池的创建" class="headerlink" title="1.连接池的创建"></a>1.连接池的创建</h5><p>在 WebContent 目录下的 META_INF 目录下创建文件 context.xml记住文件的名字不能更改<br><img src="https://img-blog.csdnimg.cn/20181120120915166.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMjY1MTg3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h5 id="context-xml"><a href="#context-xml" class="headerlink" title="context.xml"></a>context.xml</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;Context&gt;</span><br><span class="line">	&lt;Resource name=<span class="string">"jdbc/mysql"</span></span><br><span class="line">	auth=<span class="string">"Container"</span></span><br><span class="line">	type=<span class="string">"javax.sql.DataSource"</span></span><br><span class="line">	username=<span class="string">"root"</span></span><br><span class="line">	password=<span class="string">"123456"</span></span><br><span class="line">	maxIdle=<span class="string">"30"</span> </span><br><span class="line">    maxWait=<span class="string">"10000"</span> </span><br><span class="line">    maxActive=<span class="string">"100"</span></span><br><span class="line">    driverClassName=<span class="string">"com.mysql.jdbc.Driver"</span></span><br><span class="line">    url=<span class="string">"jdbc:mysql://127.0.0.1:3306/Duser?serverTimezone=GMT"</span></span><br><span class="line">    logAbandoned=<span class="string">"true"</span> /&gt;</span><br><span class="line">&lt;/Context&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20181120121541480.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMjY1MTg3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h5 id="2-mysql数据库的创建"><a href="#2-mysql数据库的创建" class="headerlink" title="2.mysql数据库的创建"></a>2.mysql数据库的创建</h5><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create database Duser;</span><br><span class="line">use Duser;</span><br><span class="line"><span class="function">create table <span class="title">user</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">	name varchar(<span class="number">30</span>)</span> not <span class="keyword">null</span>,</span></span><br><span class="line"><span class="function">	password <span class="title">varchar</span><span class="params">(<span class="number">30</span>)</span> not <span class="keyword">null</span>,</span></span><br><span class="line"><span class="function">	constraint primary <span class="title">key</span><span class="params">(name)</span> <span class="comment">//添加姓名为主键</span></span></span><br><span class="line"><span class="function">)</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.login.jsp</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;用户登录页面&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body &gt;</span><br><span class="line">	&lt;h2 align="center"&gt;&lt;font color=red&gt;用户登录页面&lt;/font&gt;&lt;/h2&gt;</span><br><span class="line">	&lt;form action=<span class="string">"success.jsp"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">	&lt;table align=<span class="string">"center"</span> border=<span class="string">"1"</span>&gt;</span><br><span class="line">		&lt;tr&gt;</span><br><span class="line">			&lt;td&gt;用户名:&lt;/td&gt;</span><br><span class="line">			&lt;td&gt;&lt;input type="text" name="name"&gt;&lt;/td&gt;</span><br><span class="line">		&lt;/tr&gt;</span><br><span class="line">		&lt;tr&gt;</span><br><span class="line">			&lt;td&gt;密&amp;nbsp;&amp;nbsp;码:&lt;/td&gt;</span><br><span class="line">			&lt;td&gt;&lt;input type="text" name="password"&gt;&lt;/td&gt;</span><br><span class="line">		&lt;/tr&gt;</span><br><span class="line">		&lt;tr&gt;</span><br><span class="line">			&lt;td&gt;&lt;input type="submit" value="登录" name="login"&gt;&lt;/td&gt;</span><br><span class="line">			&lt;td&gt;&lt;input type="reset" value="重置" name="reset"&gt;&lt;/td&gt;</span><br><span class="line">		&lt;/tr&gt;</span><br><span class="line">	&lt;/table&gt;</span><br><span class="line">	&lt;p align="center"&gt;&lt;a href="registered.jsp" color=blue&gt;注册用户&lt;/a&gt;&lt;/p&gt;</span><br><span class="line">	&lt;/form&gt;</span><br><span class="line">	</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>5.registered.jsp</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body align=<span class="string">"center"</span>&gt;</span><br><span class="line">	&lt;h2&gt;新用户注册&lt;/h2&gt;</span><br><span class="line">	&lt;form action=<span class="string">"registeredSucceed.jsp"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">		&lt;table align=<span class="string">"center"</span>&gt;</span><br><span class="line">			&lt;tr align=<span class="string">"right"</span>&gt;</span><br><span class="line">		 		&lt;td&gt;请输入用户名:&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;&lt;input type="text" name=name autofocus="autofocus"&gt;&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">			&lt;tr align=<span class="string">"right"</span>&gt;</span><br><span class="line">				&lt;td&gt;请输入密码:&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;&lt;input type="text" name=password&gt;&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">			&lt;tr align=<span class="string">"right"</span>&gt;</span><br><span class="line">				&lt;td&gt;请输入确认密码:&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;&lt;input type="text" name=refill&gt;&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">		&lt;/table&gt;</span><br><span class="line">			&lt;input type=<span class="string">"submit"</span> name=register value=<span class="string">"注册"</span> &gt;</span><br><span class="line">			&lt;input type=<span class="string">"reset"</span> name=refill value=<span class="string">"重填"</span> &gt;</span><br><span class="line">		&lt;/form&gt;</span><br><span class="line">	 </span><br><span class="line">		</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>6.registeredSucceed.jsp</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">teredSucceed.jsp</span><br><span class="line">&lt;%<span class="meta">@page</span> <span class="keyword">import</span>=<span class="string">"java.sql.*"</span>%&gt;</span><br><span class="line">&lt;%<span class="meta">@page</span> <span class="keyword">import</span>=<span class="string">"javax.sql.*"</span>%&gt;</span><br><span class="line">&lt;%<span class="meta">@page</span> <span class="keyword">import</span>=<span class="string">"javax.naming.*"</span>%&gt;</span><br><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">    &lt;%request.setCharacterEncoding(<span class="string">"utf-8"</span>); %&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;注册成功页面&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;%</span><br><span class="line">		Context ctx = <span class="keyword">null</span>;</span><br><span class="line">		DataSource ds = <span class="keyword">null</span>;</span><br><span class="line">		Statement stmt =<span class="keyword">null</span>;</span><br><span class="line">		ResultSet rs = <span class="keyword">null</span>;</span><br><span class="line">		Connection con = <span class="keyword">null</span>;</span><br><span class="line">		String name=request.getParameter(<span class="string">"name"</span>).trim();<span class="comment">//去除首尾空格</span></span><br><span class="line">		String password=request.getParameter(<span class="string">"password"</span>).trim();</span><br><span class="line">		String refill=request.getParameter(<span class="string">"refill"</span>).trim();</span><br><span class="line">		<span class="keyword">try</span>&#123;</span><br><span class="line">		ctx = <span class="keyword">new</span> InitialContext();</span><br><span class="line">		ds = (DataSource)ctx.lookup(<span class="string">"java:comp/env/jdbc/mysql"</span>);<span class="comment">//mysql是在创建连接池时自己创建的名字</span></span><br><span class="line">		con = ds.getConnection();</span><br><span class="line">		stmt = con.createStatement();</span><br><span class="line">		<span class="keyword">if</span>(name!=<span class="keyword">null</span> )&#123;</span><br><span class="line">			rs=stmt.executeQuery(<span class="string">"select * from user where name='"</span>+name+<span class="string">"'"</span>);</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">if</span>(rs.next())&#123;</span><br><span class="line">				out.print(<span class="string">"用户已经存在  "</span>+<span class="string">"请&lt;a href=\"registered.jsp\"&gt;注册&lt;/a&gt;"</span>);</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="keyword">if</span>(password.equals(refill))&#123;</span><br><span class="line">	 				stmt.executeUpdate(<span class="string">"insert into user values('"</span>+name+<span class="string">"','"</span>+ password + <span class="string">"');"</span>);</span><br><span class="line">				%&gt;</span><br><span class="line">				注册成功！！！&lt;br&gt;</span><br><span class="line">				三秒钟后自动转到登录页面！！！&lt;br&gt;</span><br><span class="line">				如果没有跳转，请点击&lt;a href="login.jsp"&gt;这里&lt;/a&gt;！！！</span><br><span class="line">				&lt;span style="font-size:24px;"&gt;&lt;meta http-equiv="refresh" content="3;URL=login.jsp"&gt; &lt;/span&gt;</span><br><span class="line">&lt;% </span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				out.print(<span class="string">"密码输入不一致!!!&lt;br&gt;"</span>+<span class="string">"重新&lt;a href=\"registered.jsp\"&gt;注册&lt;/a&gt;"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">				out.print(<span class="string">"姓名不能为空"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">			out.print(e);</span><br><span class="line">		&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(rs!=<span class="keyword">null</span>)</span><br><span class="line">				rs.close();</span><br><span class="line">			<span class="keyword">if</span>(stmt!=<span class="keyword">null</span>)</span><br><span class="line">				stmt.close();</span><br><span class="line">			<span class="keyword">if</span>(con!=<span class="keyword">null</span>)</span><br><span class="line">				con.close();</span><br><span class="line">		&#125;</span><br><span class="line">%&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>7.success.jsp</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">ss.jsp</span><br><span class="line">&lt;%<span class="meta">@page</span> <span class="keyword">import</span>=<span class="string">"java.sql.*"</span>%&gt;</span><br><span class="line">&lt;%<span class="meta">@page</span> <span class="keyword">import</span>=<span class="string">"javax.sql.*"</span>%&gt;</span><br><span class="line">&lt;%<span class="meta">@page</span> <span class="keyword">import</span>=<span class="string">"javax.naming.*"</span>%&gt;</span><br><span class="line">&lt;%request.setCharacterEncoding(<span class="string">"utf-8"</span>); %&gt;</span><br><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;判断登录&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;%</span><br><span class="line">		Context ctx = <span class="keyword">null</span>;</span><br><span class="line">		DataSource ds = <span class="keyword">null</span>;</span><br><span class="line">		Statement stmt =<span class="keyword">null</span>;</span><br><span class="line">		ResultSet rs = <span class="keyword">null</span>;</span><br><span class="line">		Connection con = <span class="keyword">null</span>;</span><br><span class="line">		String name = request.getParameter(<span class="string">"name"</span>).trim();</span><br><span class="line">		String password = request.getParameter(<span class="string">"password"</span>).trim();</span><br><span class="line">		<span class="keyword">try</span>&#123;</span><br><span class="line">			ctx = <span class="keyword">new</span> InitialContext();</span><br><span class="line">			ds = (DataSource)ctx.lookup(<span class="string">"java:comp/env/jdbc/mysql"</span>);<span class="comment">//mysql是在创建连接池时自己创建的名字  语句功能找到配置的数据库</span></span><br><span class="line">			con = ds.getConnection();<span class="comment">//创建数据库连接</span></span><br><span class="line">			stmt = con.createStatement();</span><br><span class="line">			rs=stmt.executeQuery(<span class="string">"select * from user where name='"</span>+name+<span class="string">"'"</span>);</span><br><span class="line">			<span class="keyword">if</span>(rs.next())&#123;</span><br><span class="line">				rs=stmt.executeQuery(<span class="string">"select * from user where name='"</span>+name+<span class="string">"' and password='"</span>+password+<span class="string">"'"</span>);</span><br><span class="line">				<span class="keyword">if</span>(rs.next())&#123;</span><br><span class="line">					out.print(name+<span class="string">"登录成功"</span>);</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					out.print(<span class="string">"密码输入错误！！！&lt;br&gt;"</span>+<span class="string">"重新&lt;a href=\"login.jsp\"&gt;登录&lt;/a&gt;"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				out.print(<span class="string">"&lt;font color=red&gt;"</span>+name+<span class="string">"&lt;/font&gt;用户不存在！！！&lt;br&gt;"</span>+<span class="string">"请点击&lt;a href=\"registered.jsp\"&gt;注册&lt;/a&gt;"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">			out.print(e);</span><br><span class="line">		&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(rs!=<span class="keyword">null</span>)</span><br><span class="line">				rs.close();</span><br><span class="line">			<span class="keyword">if</span>(stmt!=<span class="keyword">null</span>)</span><br><span class="line">				stmt.close();</span><br><span class="line">			<span class="keyword">if</span>(con!=<span class="keyword">null</span>)</span><br><span class="line">				con.close();</span><br><span class="line">		&#125;</span><br><span class="line">	%&gt;</span><br><span class="line">	</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20181120122616661.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMjY1MTg3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/2018112012263932.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMjY1MTg3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20181120122714292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMjY1MTg3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/2018112012273286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMjY1MTg3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20181120122810283.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMjY1MTg3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20181120122826796.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMjY1MTg3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer_1.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2019/10/31/Android六大基本布局/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>Android六大基本布局</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer_2.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2019/10/22/MySQL增删改查/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>MySQL增删改查</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.blleng.cn" target="_blank">Lx</a><br>
+  </div>
+</footer>
+</div>
+
+<button class="menu-trigger"></button>
+<div class="menu">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/person_1.jpg" alt="John Doe"></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>John Doe</p>
+          <span class="tagline">Hello, World!</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>页面</span>
+        <ul>
+          <li><a href="/guestbook">留言</a></li>
+        <li><a href="/about">关于</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>友链</span>
+        <ul>
+          <li> <a href="https://lx.blleng.cn" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.stellar.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
