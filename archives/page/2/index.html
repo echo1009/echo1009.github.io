@@ -1,136 +1,704 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
 <!DOCTYPE html>
-<html>
+<html class="html-loading">
+		
+
 <head><meta name="generator" content="Hexo 3.9.0">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Archives | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      文章归档 | Hexo
+    
+  </title>
   <meta name="author" content="John Doe">
   <meta name="keywords" content>
   <meta name="description" content>
-  <script id="hexo-configurations">
-  var CONFIG = {
-    root: '/',
-    theme: 'hexo-theme-lx-master',
-    version: '1.4.5',
-    localsearch:{
-      "enable": false,
-      "trigger": "auto",
-      "top_n_per_article": 1,
-      "unescape": false,
-      "preload": false
-      },
-    path: '-'
-  };
-</script>
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
 
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/main.css">
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/jquery.jside.menu.js"></script>
-	<script>
-	$(document).ready(function(){
-	$(".menu-container").jSideMenu({
-	    jSidePosition: "position-right",
-	    jSideSticky: true,
-	    jSideSkin: "endless-river",
-	     });
-	}); 
-	</script>
+  <!-- css -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/Annie.css">
   
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300|Noto+Serif+SC&amp;display=swap">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <!-- jquery -->
+	<script src="/js/jquery.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
 </head>
-<body>
-<div id="page">
-<div id="lx-aside" style="background-image: url(/images/cover.jpg)">
-  <div class="overlay">
-  <div class="featured">
-    <div class="avatar"><a href="/"><img src="/images/person_1.jpg"></a></div>
-    <span>John Doe</span>
-    <h2>Hexo</h2>
-    <span>——</span>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="normal" data-normal-src="/img/1.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<!-- Logo and navigation -->
+		<div class="h-header">
+			<div id="logo">
+				<a href="/">
+						
+						<img src="/img/logo.png" alt="Logo">
+					
+				</a>
+			</div>
+			
+			<div id="navigation-show">
+				<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
+
+	
+</ul>
+			</div>				
+		</div>
+
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<p class="motto"></p>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
+<style type="text/css">
+	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
+		position: absolute;
+		bottom: 5px;
+		right: 1rem;
+		writing-mode: tb-rl;
+	}	
+	
+	.header-date a {
+		border-bottom: none;
+	}
+
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			font-size: 1rem;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow" ></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script>
+			
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			文章归档
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
+
+	
+</ul>
+	</div>
+	<div class="nav-footer">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-08
+	描述：The archive module refers to 'https://1984n.win/archives-post/' & 'http://1900.live/one-theme/', include js、css. Relevant rights reserved by them! 
+-->
+<div class="layout-archive">
+    <div class="i-container">
+        <i class="fa fa-book">
+			<!--
+	Post number counter for archive.ejs.  
+-->
+
+	
+	总计 15 篇 文章
+	
+
+		</i>
+    </div>
+
+    <!-- Archive by year, display in page( archive ) -->
+    <div id="layout-archive-year" style="display: 
+                 	
+            block">        
+        
+        
+        <ul>
+            
+                <li>
+                    <a href="/2019/11/26/java根据正则过滤特殊字符/">
+            			<em year="2019">
+                            11-26
+                        </em>
+        			    <span itemprop="name">
+                            java根据正则过滤特殊字符
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/11/26/String-StringBuffer和StringBuilder-1/">
+            			<em year="2019">
+                            11-26
+                        </em>
+        			    <span itemprop="name">
+                            String-StringBuffer和StringBuilder
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/11/21/Jsp总结-三/">
+            			<em year="2019">
+                            11-21
+                        </em>
+        			    <span itemprop="name">
+                            Jsp总结(三)
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/11/21/Jsp总结-二/">
+            			<em year="2019">
+                            11-21
+                        </em>
+        			    <span itemprop="name">
+                            Jsp总结(二)
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/11/21/Jsp总结-一/">
+            			<em year="2019">
+                            11-21
+                        </em>
+        			    <span itemprop="name">
+                            Jsp总结(一)
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/11/12/jdbc连接数据库的步骤/">
+            			<em year="2019">
+                            11-12
+                        </em>
+        			    <span itemprop="name">
+                            JDBC连接数据库的步骤
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/11/03/web前端总结（三）/">
+            			<em year="2019">
+                            11-03
+                        </em>
+        			    <span itemprop="name">
+                            web前端总结（三）
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/11/03/web前端总结（二）/">
+            			<em year="2019">
+                            11-03
+                        </em>
+        			    <span itemprop="name">
+                            web前端总结（二）
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/11/03/web前端总结（一）/">
+            			<em year="2019">
+                            11-03
+                        </em>
+        			    <span itemprop="name">
+                            web前端总结(一)
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/10/31/Android六大基本布局/">
+            			<em year="2019">
+                            10-31
+                        </em>
+        			    <span itemprop="name">
+                            Android六大基本布局
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/10/30/JSP实现简单的用户登录和注册/">
+            			<em year="2019">
+                            10-30
+                        </em>
+        			    <span itemprop="name">
+                            JSP实现简单的用户登录和注册
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/10/22/MySQL增删改查/">
+            			<em year="2019">
+                            10-22
+                        </em>
+        			    <span itemprop="name">
+                            MySQL增删改查
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/10/16/MySQL数据约束/">
+            			<em year="2019">
+                            10-16
+                        </em>
+        			    <span itemprop="name">
+                            MySQL数据约束
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/10/11/““JAVA面向对象总结/">
+            			<em year="2019">
+                            10-11
+                        </em>
+        			    <span itemprop="name">
+                            ““JAVA面向对象总结
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/10/10/我的第一篇博客/">
+            			<em year="2019">
+                            10-10
+                        </em>
+        			    <span itemprop="name">
+                            我的第一篇博客
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+     <!-- Archive by month, called by page( categories, tags... ) -->
+    <div id="layout-archive-month" style="display: 
+         
+            none"> 
+        
+
+        
+        
+            
+
+            
+                
+                <h3 class="archive-year">
+                    <!-- <a href="/archives/2019/10"> -->
+                    <a>
+                        2019 - 10
+                    </a>
+                </h3>
+            
+
+            <ul>
+                <li>
+                    <a href="/2019/10/30/JSP实现简单的用户登录和注册/">
+                        <em>
+                            10-30
+                        </em>
+                        <span itemprop="name">
+                            JSP实现简单的用户登录和注册
+                        </span>
+                               
+                    </a>
+                </li>
+            </ul>
+        
+            
+
+            
+
+            <ul>
+                <li>
+                    <a href="/2019/10/22/MySQL增删改查/">
+                        <em>
+                            10-22
+                        </em>
+                        <span itemprop="name">
+                            MySQL增删改查
+                        </span>
+                               
+                    </a>
+                </li>
+            </ul>
+        
+            
+
+            
+
+            <ul>
+                <li>
+                    <a href="/2019/10/16/MySQL数据约束/">
+                        <em>
+                            10-16
+                        </em>
+                        <span itemprop="name">
+                            MySQL数据约束
+                        </span>
+                               
+                    </a>
+                </li>
+            </ul>
+        
+            
+
+            
+
+            <ul>
+                <li>
+                    <a href="/2019/10/11/““JAVA面向对象总结/">
+                        <em>
+                            10-11
+                        </em>
+                        <span itemprop="name">
+                            ““JAVA面向对象总结
+                        </span>
+                               
+                    </a>
+                </li>
+            </ul>
+        
+            
+
+            
+
+            <ul>
+                <li>
+                    <a href="/2019/10/10/我的第一篇博客/">
+                        <em>
+                            10-10
+                        </em>
+                        <span itemprop="name">
+                            我的第一篇博客
+                        </span>
+                               
+                    </a>
+                </li>
+            </ul>
+        
+    </div>
+
     
-  </div>
-  </div>
 </div>
-<div id="lx-main-content">
-  <div class="lx-post">
-  <h2 class="archive">归档</h2>
-    <div class="lx-entry padding"><div>
-    <span class="lx-post-detail">2019-10-30</span>
-    <h2><a href="/2019/10/30/JSP实现简单的用户登录和注册/">JSP实现简单的用户登录和注册</a></h2>
-    <p></p></div></div><div class="lx-entry padding"><div>
-    <span class="lx-post-detail">2019-10-22</span>
-    <h2><a href="/2019/10/22/MySQL增删改查/">MySQL增删改查</a></h2>
-    <p></p></div></div><div class="lx-entry padding"><div>
-    <span class="lx-post-detail">2019-10-16</span>
-    <h2><a href="/2019/10/16/MySQL数据约束/">MySQL数据约束</a></h2>
-    <p></p></div></div><div class="lx-entry padding"><div>
-    <span class="lx-post-detail">2019-10-11</span>
-    <h2><a href="/2019/10/11/““JAVA面向对象总结/">““JAVA面向对象总结</a></h2>
-    <p></p></div></div><div class="lx-entry padding"><div>
-    <span class="lx-post-detail">2019-10-10</span>
-    <h2><a href="/2019/10/10/我的第一篇博客/">我的第一篇博客</a></h2>
-    <p></p></div></div>
-<div id="pagination">
-  <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-chevron-left" aria-label="accessibility.prev_page"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-</div>
-<footer>
-  <div>
-  Copyright &copy; 2019.<a href="/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.blleng.cn" target="_blank">Lx</a><br>
-  </div>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by John Doe. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_site_pv">
+	    	本站总访问量<span id="busuanzi_value_site_pv"></span>次
+		</span>
+
+		<span id="busuanzi_container_site_uv">
+	  		本站访客数<span id="busuanzi_value_site_uv"></span>人次
+		</span>
+		
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
 </footer>
-  </div>
-</div>
-</div>
+		
+	<!-- set '1' to show motto in all pages! -->
 
-<button class="menu-trigger"></button>
-<div class="menu">
-  <div class="menu-head">
-    <span class="layer">
-      <div class="col">
-        <div class="row for-pic">
-          <div class="profile-pic">
-            <a href="/"><img src="/images/person_1.jpg" alt="John Doe"></a>
-          </div>
-        </div>
-        <div class="row for-name">
-          <p>John Doe</p>
-          <span class="tagline">Hello, World!</span>
-        </div>
-      </div>
-    </span>
-  </div>
-  <nav class="menu-container">
-  <ul class="menu-items">
-    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
-    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
-    <li class="has-sub"><span class="dropdown-heading">
-      <i class="fa fa-bookmark fa-fw"></i>页面</span>
-        <ul>
-          <li><a href="/guestbook">留言</a></li>
-        <li><a href="/about">关于</a></li>
-        </ul>
-    </li>
-    <li class="has-sub"><span class="dropdown-heading">
-      <i class="fa fa-link fa-fw"></i>友链</span>
-        <ul>
-          <li> <a href="https://lx.blleng.cn" target="_blank">Theme-Lx</a></li>
-        </ul>
-    </li>
-  </ul>
-  </nav>
-</div>
+	<script src="/plugin/motto/motto.js"></script>
+	
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
 
-<div class="gototop js-top">
-  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
-</div>
-<script src="/js/jquery.easing.min.js"></script>
-<script src="/js/jquery.waypoints.min.js"></script>
-<script src="/js/jquery.stellar.min.js"></script>
+
+
+
+
+<!-- love effect -->
+
+	<script src="/plugin/love/love.js"></script>
+
+
+<!-- back to top -->
+
+	
+	<div id="totop">
+  		<a href="javascript:;"  name="TOTOP" class="fa fa-arrow-up" ></a>
+	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+
+	
+	
+	
+	
+ 
+
+<script src="/plugin/vibrant/vibrant.js"></script>
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imgLazyLoader/yall.min.js"></script>
+<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/js/resizediv.js"></script>
 <script src="/js/main.js"></script>
-
-
-</body>
+	</body>	
 </html>
